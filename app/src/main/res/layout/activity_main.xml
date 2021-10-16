@@ -26,7 +26,7 @@
         android:layout_marginTop="96dp"
         android:layout_marginEnd="180dp"
         android:text="@string/practica_1"
-        android:textSize="40sp"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
         android:layout_marginTop="84dp"
         android:layout_marginEnd="180dp"
         android:text="@string/geo_quiz"
-        android:textSize="34sp"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,10 +60,11 @@
 
     <Button
         android:id="@+id/playButton"
-        android:text="@string/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
+        android:text="@string/play"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/authorsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
