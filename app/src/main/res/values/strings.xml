@@ -2,4 +2,6 @@
     <string name="app_name">MovilesPractica_1</string>
     <string name="practica_1">Practica 1</string>
     <string name="play">PLAY</string>
+    <string name="geo_quiz">Geo Quiz</string>
+    <string name="made_by_rafael_exp_sito_p_rez_and_javier_ra_l_alonso_tejera">Made by: Rafael Expósito Pérez and Javier Raúl Alonso Tejera</string>
 </resources>
