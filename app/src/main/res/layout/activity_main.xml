@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginBottom="316dp"
-        android:text="@string/play"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitleText" />
+    android:id="@+id/playButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="88dp"
+    android:layout_marginBottom="316dp"
+    android:text="@string/play"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/gameTitleText" />
 
     <TextView
         android:id="@+id/practiceTitleText"
@@ -48,26 +48,30 @@
     <TextView
         android:id="@+id/authorsText"
         android:layout_width="341dp"
-        android:layout_height="116dp"
+        android:layout_height="72dp"
         android:layout_marginStart="35dp"
+        android:layout_marginTop="575dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="56dp"
         android:text="@string/made_by_rafael_exp_sito_p_rez_and_javier_ra_l_alonso_tejera"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.365" />
 
     <Button
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
+        android:onClick="play"
         android:text="@string/play"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/authorsText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameTitleText"
         app:layout_constraintVertical_bias="0.0" />
