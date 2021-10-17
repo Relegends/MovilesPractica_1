@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameActivity">
+    android:orientation="vertical"
+    tools:context="com.example.movilespractica_1.GameActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/resultQuestionsFragment"
@@ -15,5 +15,17 @@
         tools:layout="@layout/fragment_result_questions">
 
     </androidx.fragment.app.FragmentContainerView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/radioButtonQuestionFragment"
+        android:name="com.example.movilespractica_1.RadioButtonQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="350dp" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/progressBarFragment"
+        android:name="com.example.movilespractica_1.ProgressFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

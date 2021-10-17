@@ -8,12 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 
-public class radioButtonQuestion extends Fragment {
-
-    public radioButtonQuestion() {
-        // Required empty public constructor
-    }
-
+public class RadioButtonQuestion extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
