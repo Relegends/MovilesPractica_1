@@ -4,4 +4,6 @@
     <string name="play">PLAY</string>
     <string name="geo_quiz">Geo Quiz</string>
     <string name="made_by_rafael_exp_sito_p_rez_and_javier_ra_l_alonso_tejera">Made by: Rafael Expósito Pérez and Javier Raúl Alonso Tejera</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

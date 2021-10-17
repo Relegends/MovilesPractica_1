@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1935" />
-        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/activity_game.xml" value="0.22" />
-        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/activity_main.xml" value="0.3484375" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/activity_game.xml" value="0.67" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/activity_results.xml" value="0.3625" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_item_list.xml" value="0.2554347826086957" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_result_questions.xml" value="0.4836692147324531" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_results_questions.xml" value="0.33" />
       </map>
     </option>
   </component>
