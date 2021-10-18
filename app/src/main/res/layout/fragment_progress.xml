@@ -20,7 +20,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="56dp"
             android:layout_marginEnd="70dp"
-            android:text="Pregunta"
+            android:text="¿Cuál es la capital de España?"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="280dp"
-            android:text="Question"
+            android:text="Question 1"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/text_question"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,14 +100,13 @@
             android:layout_width="283dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="64dp"
+            android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/skipQuestion"
-            app:layout_constraintVertical_bias="0.045" />
+            app:layout_constraintTop_toBottomOf="@+id/skipQuestion" />
 
         <Button
             android:id="@+id/skipQuestion"
@@ -179,8 +178,7 @@
             app:layout_constraintBottom_toTopOf="@+id/skipQuestion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator"
-            tools:visibility="visible">
+            app:layout_constraintTop_toBottomOf="@+id/separator">
 
             <ImageView
                 android:id="@+id/polandImage"
@@ -224,12 +222,13 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.0"
+            tools:visibility="visible">
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_width="408dp"
-                android:layout_height="50dp"
+                android:layout_width="235dp"
+                android:layout_height="51dp"
                 android:entries="@array/spinner_countries_array"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -237,6 +236,78 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.103" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/flagsLayout"
+            android:layout_width="411dp"
+            android:layout_height="302dp"
+            android:layout_marginBottom="13dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/skipQuestion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator"
+            app:layout_constraintVertical_bias="1.0"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/alemaniaFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="68dp"
+                android:layout_marginBottom="49dp"
+                android:src="@mipmap/alemania_foreground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/serbiaFlag"
+
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/canariasFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="16dp"
+                android:src="@mipmap/canarias_foreground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/serbiaFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="66dp"
+                android:src="@mipmap/serbia_foreground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/canariasFlag"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/andaluciaFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="49dp"
+                android:src="@mipmap/andalucia_image_foreground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/canariasFlag"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

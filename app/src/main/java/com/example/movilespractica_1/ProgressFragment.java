@@ -1,5 +1,6 @@
 package com.example.movilespractica_1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -47,6 +49,11 @@ public class ProgressFragment extends Fragment {
     ConstraintLayout spinnerLayout;
     Spinner spinner;
 
+    // Question 5
+    ConstraintLayout flagLayout;
+    ImageView alemaniaFlag, andaluciaFlag, serbiaFlag, canariasFlag;
+    boolean isFlag;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,10 +85,17 @@ public class ProgressFragment extends Fragment {
         spinnerLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.SpinnerConstraint);
         spinner = (Spinner) progressFragmentView.findViewById(R.id.spinner);
 
+        flagLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.flagsLayout);
+
         nextQuestionButton = (Button) progressFragmentView.findViewById(R.id.skipQuestion);
 
-        loadNextQuestion();
+        canariasFlag = (ImageView)  progressFragmentView.findViewById(R.id.canariasFlag);
+        alemaniaFlag = (ImageView)  progressFragmentView.findViewById(R.id.alemaniaFlag);
+        andaluciaFlag = (ImageView)  progressFragmentView.findViewById(R.id.andaluciaFlag);
+        serbiaFlag = (ImageView)  progressFragmentView.findViewById(R.id.serbiaFlag);
+
         nextQuestion();
+        clickFlags();
 
         return progressFragmentView;
     }
@@ -97,12 +111,54 @@ public class ProgressFragment extends Fragment {
         });
     }
 
+    public void clickFlags() {
+        canariasFlag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                canariasFlag.setColorFilter(Color.argb(50, 0, 0, 0));
+                alemaniaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                andaluciaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                serbiaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                isFlag = false;
+            }
+        });
+
+        alemaniaFlag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                canariasFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                alemaniaFlag.setColorFilter(Color.argb(50, 0, 0, 0));
+                andaluciaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                serbiaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                isFlag = false;
+            }
+        });
+
+        andaluciaFlag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                canariasFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                alemaniaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                andaluciaFlag.setColorFilter(Color.argb(50, 0, 0, 0));
+                serbiaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                isFlag = false;
+            }
+        });
+
+        serbiaFlag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                canariasFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                alemaniaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                andaluciaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                serbiaFlag.setColorFilter(Color.argb(50, 0, 0, 0));
+                isFlag = true;
+            }
+        });
+    }
+
     private void loadNextQuestion() {
         switch (GameLogic.GAME.getIndexShownQuestion()) {
-            case 0:
-                questionNumber.setText("Question 1");
-                questionText.setText("¿Cuál es la capital de España?");
-                break;
             case 1:
                 radioGroup.setVisibility(View.GONE);
                 questionNumber.setText("Question 2");
@@ -118,13 +174,14 @@ public class ProgressFragment extends Fragment {
             case 3:
                 imageLayout.setVisibility(View.GONE);
                 questionNumber.setText("Question 4");
-                questionText.setText("Seleccione el país más pequeño del mundo:");
+                questionText.setText("Seleccione el país más\npequeño del mundo:");
                 spinnerLayout.setVisibility(View.VISIBLE);
                 break;
             case 4:
                 spinnerLayout.setVisibility(View.GONE);
                 questionNumber.setText("Question 5");
-                questionText.setText("¿En qué continente se encuentra Yemen?");
+                questionText.setText("¿Cuál es la bandera de Serbia?");
+                flagLayout.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -150,6 +207,8 @@ public class ProgressFragment extends Fragment {
                     GameLogic.GAME.setAnswer(true, indexQuestion);
                 break;
             case 4:
+                if (isFlag)
+                    GameLogic.GAME.setAnswer(true, indexQuestion);
                 break;
         }
         ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();

@@ -263,20 +263,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="142dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="351dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Asia"
-                    app:layout_constraintBottom_toTopOf="@+id/separator5"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_question5"
-                    app:layout_constraintVertical_bias="1.0" />
-
                 <View
                     android:id="@+id/separator5"
                     android:layout_width="match_parent"
@@ -310,13 +296,27 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="125dp"
-                    android:text="¿En qué continente se encuentra Yemen? "
+                    android:text="¿Cuál es la bandera de Serbia?"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/label_question5" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="345dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@mipmap/serbia_foreground"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_question5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
