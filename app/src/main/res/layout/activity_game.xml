@@ -17,12 +17,6 @@
     </androidx.fragment.app.FragmentContainerView>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/radioButtonQuestionFragment"
-        android:name="com.example.movilespractica_1.RadioButtonQuestion"
-        android:layout_width="match_parent"
-        android:layout_height="350dp" />
-
-    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/progressBarFragment"
         android:name="com.example.movilespractica_1.ProgressFragment"
         android:layout_width="match_parent"

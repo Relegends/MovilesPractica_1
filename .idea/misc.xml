@@ -8,10 +8,11 @@
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/activity_results.xml" value="0.3625" />
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_item_list.xml" value="0.2554347826086957" />
-        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_progress.xml" value="0.5" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_progress.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_radio_button_question.xml" value="0.5" />
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_result_questions.xml" value="0.5412130637636081" />
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_results_questions.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_show_answers.xml" value="0.5" />
       </map>
     </option>
   </component>
