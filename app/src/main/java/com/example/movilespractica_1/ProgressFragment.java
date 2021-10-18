@@ -1,8 +1,8 @@
 package com.example.movilespractica_1;
 
-import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
@@ -10,8 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +33,19 @@ public class ProgressFragment extends Fragment {
 
     // Question 1
     RadioButton radioButtonCorrect;
+    RadioGroup radioGroup;
+
+    // Question 2
+    ConstraintLayout checkBoxesLayout;
+    CheckBox checkBoxIncorrect, checkBoxCorrect1, checkBoxCorrect2, checkBoxCorrect3;
+
+    // Question 3
+    ConstraintLayout imageLayout;
+    EditText countryPlainText;
+
+    // Question 4
+    ConstraintLayout spinnerLayout;
+    Spinner spinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,8 +64,23 @@ public class ProgressFragment extends Fragment {
         countDownEvent();
 
         radioButtonCorrect = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonCorrect);
+        radioGroup = (RadioGroup) progressFragmentView.findViewById(R.id.radioGroup);
+
+        checkBoxesLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.checkBoxes);
+        checkBoxCorrect1 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox1);
+        checkBoxCorrect2 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox2);
+        checkBoxIncorrect = (CheckBox) progressFragmentView.findViewById(R.id.checkBox3);
+        checkBoxCorrect3 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox4);
+
+        imageLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.ImageConstraint);
+        countryPlainText = (EditText) progressFragmentView.findViewById(R.id.editTextCountry);
+
+        spinnerLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.SpinnerConstraint);
+        spinner = (Spinner) progressFragmentView.findViewById(R.id.spinner);
 
         nextQuestionButton = (Button) progressFragmentView.findViewById(R.id.skipQuestion);
+
+        loadNextQuestion();
         nextQuestion();
 
         return progressFragmentView;
@@ -67,19 +99,30 @@ public class ProgressFragment extends Fragment {
 
     private void loadNextQuestion() {
         switch (GameLogic.GAME.getIndexShownQuestion()) {
+            case 0:
+                questionNumber.setText("Question 1");
+                questionText.setText("¿Cuál es la capital de España?");
+                break;
             case 1:
+                radioGroup.setVisibility(View.GONE);
                 questionNumber.setText("Question 2");
                 questionText.setText("¿Cuáles de estos países están en la UE?");
+                checkBoxesLayout.setVisibility(View.VISIBLE);
                 break;
             case 2:
+                checkBoxesLayout.setVisibility(View.GONE);
                 questionNumber.setText("Question 3");
                 questionText.setText("¿Qué país es este?");
+                imageLayout.setVisibility(View.VISIBLE);
                 break;
             case 3:
+                imageLayout.setVisibility(View.GONE);
                 questionNumber.setText("Question 4");
                 questionText.setText("Seleccione el país más pequeño del mundo:");
+                spinnerLayout.setVisibility(View.VISIBLE);
                 break;
             case 4:
+                spinnerLayout.setVisibility(View.GONE);
                 questionNumber.setText("Question 5");
                 questionText.setText("¿En qué continente se encuentra Yemen?");
                 break;
@@ -93,6 +136,20 @@ public class ProgressFragment extends Fragment {
             case 0:
                 if (radioButtonCorrect.isChecked())
                     GameLogic.GAME.setAnswer(true, indexQuestion);
+                break;
+            case 1:
+                if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && checkBoxCorrect3.isChecked() && !checkBoxIncorrect.isChecked())
+                    GameLogic.GAME.setAnswer(true, indexQuestion);
+                break;
+            case 2:
+                if (countryPlainText.getText().toString().equals("Polonia"))
+                    GameLogic.GAME.setAnswer(true, indexQuestion);
+                break;
+            case 3:
+                if (spinner.getSelectedItem().toString().equals("Ciudad del Vaticano"))
+                    GameLogic.GAME.setAnswer(true, indexQuestion);
+                break;
+            case 4:
                 break;
         }
         ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();

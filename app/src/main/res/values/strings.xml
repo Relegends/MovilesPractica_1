@@ -8,4 +8,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next_question">Next Question</string>
     <string name="_3">3</string>
+
+    <string-array name="spinner_countries_array">
+        <item>España</item>
+        <item>Italia</item>
+        <item>Ciudad del Vaticano</item>
+        <item>Japón</item>
+        <item>Alemania</item>
+        <item>Rusia</item>
+        <item>Argentina</item>
+        <item>Perú</item>
+    </string-array>
 </resources>
