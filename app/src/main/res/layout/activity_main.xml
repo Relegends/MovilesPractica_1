@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/general_background"
     tools:context=".MainActivity"><![CDATA[
 
     android:id="@+id/playButton"
@@ -28,6 +29,7 @@
         android:layout_marginTop="96dp"
         android:layout_marginEnd="180dp"
         android:text="@string/practica_1"
+        android:textColor="@android:color/black"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +43,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="180dp"
         android:text="@string/geo_quiz"
+        android:textColor="@android:color/black"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +70,7 @@
         android:layout_height="116dp"
         android:layout_marginBottom="44dp"
         android:text="@string/made_by_rafael_exp_sito_p_rez_and_javier_ra_l_alonso_tejera"
+        android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
