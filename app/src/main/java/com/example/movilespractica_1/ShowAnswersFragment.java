@@ -48,9 +48,9 @@ public class ShowAnswersFragment extends Fragment {
 
         for (int i = 0; i < answers.length; i++) {
             if (answers[i]) {
-                questions[i].setBackgroundColor(Color.GREEN);
+                questions[i].setBackgroundColor(0x8000FF00);
             } else {
-                questions[i].setBackgroundColor(Color.RED);
+                questions[i].setBackgroundColor(0x80FF0000);
             }
         }
     }
