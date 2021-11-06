@@ -1,6 +1,7 @@
 package com.example.movilespractica_1;
 
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -14,12 +15,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 
 public class ProgressFragment extends Fragment {
@@ -32,6 +35,11 @@ public class ProgressFragment extends Fragment {
     Button nextQuestionButton;
 
     TextView questionNumber, questionText;
+
+    VideoView videoView;
+    MediaController mediaController;
+    String videoPath;
+    Uri uri;
 
     // Question 1
     RadioButton radioButtonCorrect;
@@ -67,22 +75,31 @@ public class ProgressFragment extends Fragment {
         questionNumber = (TextView) progressFragmentView.findViewById(R.id.numberQuestion);
         questionText = (TextView) progressFragmentView.findViewById(R.id.text_question);
 
+        //videoView = progressFragmentView.findViewById(R.id.);
+        //videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.;
+        Uri uri = Uri.parse((videoPath));
+        videoView.setVideoURI(uri);
+
+        mediaController = new MediaController(getContext());
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+
         progressBar = progressFragmentView.findViewById(R.id.progressBar);
         countDownEvent();
 
         radioButtonCorrect = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonCorrect);
         radioGroup = (RadioGroup) progressFragmentView.findViewById(R.id.radioGroup);
 
-        checkBoxesLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.checkBoxes);
+        checkBoxesLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.checkBoxesLayout);
         checkBoxCorrect1 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox1);
         checkBoxCorrect2 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox2);
         checkBoxIncorrect = (CheckBox) progressFragmentView.findViewById(R.id.checkBox3);
         checkBoxCorrect3 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox4);
 
-        imageLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.ImageConstraint);
+        imageLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.plainTextLayout);
         countryPlainText = (EditText) progressFragmentView.findViewById(R.id.editTextCountry);
 
-        spinnerLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.SpinnerConstraint);
+        spinnerLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.spinnerLayout);
         spinner = (Spinner) progressFragmentView.findViewById(R.id.spinner);
 
         flagLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.flagsLayout);

@@ -53,47 +53,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_question" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="314dp"
-            android:layout_height="187dp"
-            android:layout_marginTop="30dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator"
-            tools:visibility="gone">
-
-            <RadioButton
-                android:id="@+id/radioButtonIncorrect1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Berlín" />
-
-            <RadioButton
-                android:id="@+id/radioButtonIncorrect2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Murcia" />
-
-            <RadioButton
-                android:id="@+id/radioButtonCorrect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Madrid" />
-
-            <RadioButton
-                android:id="@+id/radioButtonIncorrect3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Barcelona" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
-        </RadioGroup>
-
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -119,13 +78,68 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/checkBoxes"
+            android:id="@+id/radioButtonsLayout"
             android:layout_width="409dp"
             android:layout_height="240dp"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator">
+            app:layout_constraintTop_toBottomOf="@+id/separator"
+            tools:visibility="invisible">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="314dp"
+                android:layout_height="187dp"
+                android:layout_marginTop="30dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:visibility="invisible">
+
+                <RadioButton
+                    android:id="@+id/radioButtonIncorrect1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Berlín" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonIncorrect2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Murcia" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonCorrect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Madrid" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonIncorrect3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Barcelona" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"></LinearLayout>
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/checkBoxesLayout"
+            android:layout_width="409dp"
+            android:layout_height="240dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator"
+            tools:visibility="invisible">
 
             <CheckBox
                 android:id="@+id/checkBox1"
@@ -170,15 +184,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ImageConstraint"
+            android:id="@+id/plainTextLayout"
             android:layout_width="410dp"
             android:layout_height="291dp"
             android:layout_marginBottom="24dp"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/skipQuestion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator">
+            app:layout_constraintTop_toBottomOf="@+id/separator"
+            tools:visibility="invisible">
 
             <ImageView
                 android:id="@+id/polandImage"
@@ -211,19 +226,19 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/SpinnerConstraint"
+            android:id="@+id/spinnerLayout"
             android:layout_width="411dp"
             android:layout_height="291dp"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="22dp"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/skipQuestion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
             app:layout_constraintVertical_bias="0.0"
-            tools:visibility="visible">
+            tools:visibility="invisible">
 
             <Spinner
                 android:id="@+id/spinner"
@@ -250,7 +265,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
             app:layout_constraintVertical_bias="1.0"
-            tools:visibility="visible">
+            tools:visibility="invisible">
 
             <ImageView
                 android:id="@+id/alemaniaFlag"
@@ -259,9 +274,9 @@
                 android:layout_marginTop="21dp"
                 android:layout_marginEnd="68dp"
                 android:layout_marginBottom="49dp"
-                android:src="@mipmap/alemania_foreground"
                 android:clickable="true"
                 android:focusable="true"
+                android:src="@mipmap/alemania_foreground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/serbiaFlag"
@@ -274,9 +289,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="16dp"
-                android:src="@mipmap/canarias_foreground"
                 android:clickable="true"
                 android:focusable="true"
+                android:src="@mipmap/canarias_foreground"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -287,9 +302,9 @@
                 android:layout_marginStart="84dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="66dp"
-                android:src="@mipmap/serbia_foreground"
                 android:clickable="true"
                 android:focusable="true"
+                android:src="@mipmap/serbia_foreground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/canariasFlag"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -301,9 +316,9 @@
                 android:layout_marginStart="43dp"
                 android:layout_marginTop="21dp"
                 android:layout_marginBottom="49dp"
-                android:src="@mipmap/andalucia_image_foreground"
                 android:clickable="true"
                 android:focusable="true"
+                android:src="@mipmap/andalucia_image_foreground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/canariasFlag"
