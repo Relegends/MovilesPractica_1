@@ -5,8 +5,13 @@ pluginManagement {
         mavenCentral()
     }
     plugins {
+<<<<<<< Updated upstream
         id 'com.android.application' version '7.2.0-alpha01'
         id 'com.android.library' version '7.2.0-alpha01'
+=======
+        id 'com.android.application' version '7.2.0-alpha03'
+        id 'com.android.library' version '7.2.0-alpha03'
+>>>>>>> Stashed changes
     }
 }
 dependencyResolutionManagement {
