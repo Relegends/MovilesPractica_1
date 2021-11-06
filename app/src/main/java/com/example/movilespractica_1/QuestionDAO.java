@@ -11,11 +11,14 @@ public interface QuestionDAO {
     // allowing the insert of the same word multiple times by passing a
     // conflict resolution strategy
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertButtonCheckBoxQuestions(ButtonCheckBoxQuestion question);
+    void insertButtonCheckBoxQuestions(RadioButtonQuestion question);
 
-    @Query("DELETE FROM Button_CheckBox_Question_Table")
+    @Query("DELETE FROM RadioButtonQuestion_Table")
     void deleteAllButtonCheckBoxQuestions();
 
-    @Query("SELECT * FROM Button_CheckBox_Question_Table ORDER BY question ASC")
-    LiveData<List<Question>> getButtonCheckBoxQuestions();
+    @Query("DELETE FROM CheckBoxQuestion_Table")
+    void deleteAllCheckBoxQuestions();
+
+    @Query("SELECT * FROM RadioButtonQuestion_Table ORDER BY question ASC")
+    LiveData<List<RadioButtonQuestion>> getButtonCheckBoxQuestions();
 }

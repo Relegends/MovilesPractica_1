@@ -3,17 +3,17 @@ package com.example.movilespractica_1;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 
-@Entity(tableName = "Button_CheckBox_Question_Table")
-public class ButtonCheckBoxQuestion extends Question {
+@Entity(tableName = "RadioButtonQuestion_Table")
+public class RadioButtonQuestion extends Question {
 
     @NonNull
     private String correctAnswerText, wrongAnswerText1, wrongAnswerText2, wrongAnswerText3;
 
-    public ButtonCheckBoxQuestion(@NonNull String questionText, @NonNull QuestionType questionType,
-                                  @NonNull String correctAnwerText, @NonNull String wrongAnswerText1,
-                                  @NonNull String wrongAnswerText2, @NonNull String wrongAnswerText3) {
-        super(questionText, questionType);
-        this.correctAnswerText = correctAnwerText;
+    public RadioButtonQuestion(@NonNull String questionText,
+                               @NonNull String correctAnswerTextnwerText, @NonNull String wrongAnswerText1,
+                               @NonNull String wrongAnswerText2, @NonNull String wrongAnswerText3) {
+        super(questionText, QuestionType.RADIOBUTTON);
+        this.correctAnswerText = correctAnswerText;
         this.wrongAnswerText1 = wrongAnswerText1;
         this.wrongAnswerText2 = wrongAnswerText2;
         this.wrongAnswerText3 = wrongAnswerText3;
