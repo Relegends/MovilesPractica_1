@@ -112,8 +112,9 @@ public class ProgressFragment extends Fragment {
         serbiaFlag = (ImageView) progressFragmentView.findViewById(R.id.serbiaFlag);
 
         // Video
+        videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
         videoView = progressFragmentView.findViewById(R.id.videoView);
-        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.;
+        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidrusia;
         Uri uri = Uri.parse((videoPath));
         videoView.setVideoURI(uri);
 
@@ -141,9 +142,14 @@ public class ProgressFragment extends Fragment {
     private void loadNextQuestion() {
         switch (GameLogic.GAME.getIndexShownQuestion()) {
             case 0:
-                questionNumber.setText("Question 1");
+                questionNumber.setText("TEST");
+                questionText.setText("Ey");
+                videoLayout.setVisibility(View.VISIBLE);
+
+                /*questionNumber.setText("Question 1");
                 questionText.setText("¿Cuál es la capital de España?");
-                radioButtonLayout.setVisibility(View.VISIBLE);
+                radioButtonLayout.setVisibility(View.VISIBLE);*/
+                
                 break;
             case 1:
                 radioButtonLayout.setVisibility(View.GONE);
@@ -168,12 +174,6 @@ public class ProgressFragment extends Fragment {
                 questionNumber.setText("Question 5");
                 questionText.setText("¿Cuál es la bandera de Serbia?");
                 flagLayout.setVisibility(View.VISIBLE);
-                break;
-            case 5:
-                spinnerLayout.setVisibility(View.GONE);
-                questionNumber.setText("Question 5");
-                questionText.setText("¿Cuál es la bandera de Serbia?");
-                videoLayout.setVisibility(View.VISIBLE);
                 break;
         }
     }

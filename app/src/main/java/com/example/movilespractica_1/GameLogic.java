@@ -36,7 +36,7 @@ public class GameLogic implements FragmentCommunication {
     @Override
     public void nextQuestion() {
         indexShownQuestion++;
-        if (indexShownQuestion > 10) {
+        if (indexShownQuestion > 4) {
             changeActivity(shownActivity);
         }
     }
