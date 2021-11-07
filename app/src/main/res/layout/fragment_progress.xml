@@ -192,7 +192,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
-            tools:visibility="visible">
+            tools:visibility="invisible">
 
             <ImageView
                 android:id="@+id/polandImage"
@@ -344,7 +344,22 @@
             app:layout_constraintTop_toBottomOf="@+id/separator"
             tools:visibility="invisible">
 
+            <EditText
+                android:id="@+id/answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <FrameLayout
+                android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -353,18 +368,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-            <VideoView
-                android:id="@+id/videoView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
- /> </FrameLayout>
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Audio -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/audioLayout"
-            android:layout_width="411dp"
-            android:layout_height="302dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="13dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/skipQuestion"
@@ -375,17 +390,42 @@
             app:layout_constraintVertical_bias="1.0"
             tools:visibility="invisible">
 
-            <VideoView
-                android:id="@+id/audio"
-                android:layout_width="411dp"
-                android:layout_height="302dp"
-                android:layout_marginBottom="13dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toTopOf="parent"
+            <Button
+                android:id="@+id/playMusicButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:text="PLAY"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/pauseMusicButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:text="PAUSE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/playMusicButton" />
+
+            <Button
+                android:id="@+id/stopMusicButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:text="STOP"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pauseMusicButton" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.movilespractica_1;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -65,6 +66,14 @@ public class ProgressFragment extends Fragment {
     Uri uri;
     VideoView videoView;
 
+    // Audio
+    ConstraintLayout audioLayout;
+    MediaPlayer mediaPlayer;
+    Button playButton;
+    Button pauseButton;
+    Button stopButton;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,17 +123,25 @@ public class ProgressFragment extends Fragment {
         // Video
         videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
         videoView = progressFragmentView.findViewById(R.id.videoView);
-        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidrusia;
+        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidchina;
         Uri uri = Uri.parse((videoPath));
         videoView.setVideoURI(uri);
 
         mediaController = new MediaController(getContext());
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
+
+        // Audio
+        audioLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.audioLayout);
+        playButton = (Button) progressFragmentView.findViewById(R.id.playMusicButton);
+        pauseButton = (Button) progressFragmentView.findViewById(R.id.pauseMusicButton);
+        stopButton = (Button) progressFragmentView.findViewById(R.id.stopMusicButton);
+
         loadNextQuestion();
         nextQuestion();
 
         clickFlags();
+        setMediaPlayer();
         return progressFragmentView;
     }
 
@@ -142,17 +159,19 @@ public class ProgressFragment extends Fragment {
     private void loadNextQuestion() {
         switch (GameLogic.GAME.getIndexShownQuestion()) {
             case 0:
+
                 questionNumber.setText("TEST");
                 questionText.setText("Ey");
-                videoLayout.setVisibility(View.VISIBLE);
+                //videoLayout.setVisibility(View.VISIBLE);
+                audioLayout.setVisibility(View.VISIBLE);
 
                 /*questionNumber.setText("Question 1");
                 questionText.setText("¿Cuál es la capital de España?");
                 radioButtonLayout.setVisibility(View.VISIBLE);*/
-                
+
                 break;
             case 1:
-                radioButtonLayout.setVisibility(View.GONE);
+                audioLayout.setVisibility(View.GONE);
                 questionNumber.setText("Question 2");
                 questionText.setText("¿Cuáles de estos países están en la UE?");
                 checkBoxesLayout.setVisibility(View.VISIBLE);
@@ -270,4 +289,54 @@ public class ProgressFragment extends Fragment {
         });
     }
 
+
+    // Mediaplayer handling
+
+    public void setMediaPlayer() {
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer == null) {
+                    mediaPlayer = MediaPlayer.create(getContext(), R.raw.himnouk);
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mediaPlayer) {
+                            stopPlayer();
+                        }
+                    });
+                }
+                mediaPlayer.start();
+            }
+        });
+
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer != null) {
+                    mediaPlayer.pause();
+                }
+            }
+        });
+        stopButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                stopPlayer();
+            }
+        });
+    }
+
+    private void stopPlayer() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+            //Toast.makeText(getContext(), "Recursos liberados", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        stopPlayer();
+    }
 }
