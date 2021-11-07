@@ -36,7 +36,7 @@ public class GameLogic implements FragmentCommunication {
     @Override
     public void nextQuestion() {
         indexShownQuestion++;
-        if (indexShownQuestion > 4) {
+        if (indexShownQuestion > 10) {
             changeActivity(shownActivity);
         }
     }
@@ -99,7 +99,6 @@ public class GameLogic implements FragmentCommunication {
                 throw new IllegalStateException("Unexpected value: " + shownActivity.getLocalClassName());
         }
 
-
     }
 
     public boolean[] getAnswers() {
@@ -113,6 +112,5 @@ public class GameLogic implements FragmentCommunication {
     public void resetAnswers() {
         Arrays.fill(answers, false);
     }
-
 
 }
