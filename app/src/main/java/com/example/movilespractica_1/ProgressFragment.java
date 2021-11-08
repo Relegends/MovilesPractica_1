@@ -123,7 +123,7 @@ public class ProgressFragment extends Fragment {
         // Video
         videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
         videoView = progressFragmentView.findViewById(R.id.videoView);
-        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidchina;
+        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidmarianas;
         Uri uri = Uri.parse((videoPath));
         videoView.setVideoURI(uri);
 
@@ -150,6 +150,10 @@ public class ProgressFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //checkAnswer();
+
+                stopPlayer();
+                videoView.stopPlayback();
+
                 GameLogic.GAME.nextQuestion();
                 loadNextQuestion();
             }
@@ -162,8 +166,8 @@ public class ProgressFragment extends Fragment {
 
                 questionNumber.setText("TEST");
                 questionText.setText("Ey");
-                //videoLayout.setVisibility(View.VISIBLE);
-                audioLayout.setVisibility(View.VISIBLE);
+                videoLayout.setVisibility(View.VISIBLE);
+                //audioLayout.setVisibility(View.VISIBLE);
 
                 /*questionNumber.setText("Question 1");
                 questionText.setText("¿Cuál es la capital de España?");
@@ -171,7 +175,7 @@ public class ProgressFragment extends Fragment {
 
                 break;
             case 1:
-                audioLayout.setVisibility(View.GONE);
+                videoLayout.setVisibility(View.GONE);
                 questionNumber.setText("Question 2");
                 questionText.setText("¿Cuáles de estos países están en la UE?");
                 checkBoxesLayout.setVisibility(View.VISIBLE);
