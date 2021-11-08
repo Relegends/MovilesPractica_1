@@ -21,4 +21,8 @@ public class VideoQuestion extends Question{
     public int getVideoId() {
         return videoId;
     }
+
+    public void setVideoId(int videoId) {
+        this.videoId = videoId;
+    }
 }

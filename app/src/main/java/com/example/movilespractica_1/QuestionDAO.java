@@ -21,6 +21,18 @@ public interface QuestionDAO {
     void insertVideoQuestion(VideoQuestion question);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertSpinnerQuestion(SpinnerQuestion question);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertAnthemQuestion(AnthemQuestion question);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertPictureQuestion(PictureQuestion question);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertFlagsQuestion(FlagsQuestion question);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertQuestion(Question question);
 
     @Query("DELETE FROM RadioButtonQuestion_Table")
@@ -31,6 +43,18 @@ public interface QuestionDAO {
 
     @Query("DELETE FROM VideoQuestion_Table")
     void deleteAllVideoQuestions();
+
+    @Query("DELETE FROM SpinnerQuestion_Table")
+    void deleteAllSpinnerQuestions();
+
+    @Query("DELETE FROM AnthemQuestion_Table")
+    void deleteAllAnthemQuestions();
+
+    @Query("DELETE FROM PictureQuestion_Table")
+    void deleteAllPictureQuestions();
+
+    @Query("DELETE FROM FlagsQuestion_Table")
+    void deleteAllFlagsQuestions();
 
     @Query("DELETE FROM Question_Table")
     void deleteAllQuestions();
@@ -43,6 +67,18 @@ public interface QuestionDAO {
 
     @Query("SELECT * FROM VideoQuestion_Table")
     List<VideoQuestion> getVideoQuestions();
+
+    @Query("SELECT * FROM SpinnerQuestion_Table")
+    List<SpinnerQuestion> getSpinnerQuestions();
+
+    @Query("SELECT * FROM AnthemQuestion_Table")
+    List<AnthemQuestion> getAnthemQuestions();
+
+    @Query("SELECT * FROM PictureQuestion_Table")
+    List<PictureQuestion> getPictureQuestions();
+
+    @Query("SELECT * FROM FlagsQuestion_Table")
+    List<FlagsQuestion> getFlagsQuestions();
 
     @Query("SELECT * FROM Question_Table")
     List<Question> getQuestions();
