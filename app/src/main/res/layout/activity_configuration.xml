@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigurationActivity">
+    tools:context=".ConfigurationActivity"
+    android:background="@drawable/general_background">
 
     <TextView
         android:id="@+id/textViewScore"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Number of questions"
+        android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,14 +40,14 @@
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15"
+            android:text="10"
             android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10"
+            android:text="15"
             android:textSize="20sp" />
 
     </RadioGroup>
@@ -56,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="User Name"
+        android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

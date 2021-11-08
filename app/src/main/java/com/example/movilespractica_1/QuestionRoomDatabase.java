@@ -17,6 +17,7 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
 
     public abstract QuestionDAO questionDAO();
 
+
     private static volatile QuestionRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor =
@@ -50,20 +51,38 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 // If you want to start with more words, just add them.
                 QuestionDAO dao = INSTANCE.questionDAO();
                 dao.deleteAllRadioButtonQuestions();
-//                dao.deleteAllCheckBoxQuestions();
-//                dao.deleteAllVideoQuestions();
+                dao.deleteAllCheckBoxQuestions();
+                dao.deleteAllVideoQuestions();
                 dao.deleteAllQuestions();
 
                 ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
+                //ArrayList<CheckBoxQuestion> checkBoxQuestionList = new ArrayList<>();
+                //ArrayList<SpinnerQuestion> spinnerQuestionList = new ArrayList<>();
+                //ArrayList<PictureQuestion> pictureQuestionList = new ArrayList<>();
+                //ArrayList<FlagsQuestion> flagsQuestionList = new ArrayList<>();
+
+                ArrayList<VideoQuestion> videoQuestionList = new ArrayList<>();
+                //ArrayList<AnthemQuestion> anthemQuestionList = new ArrayList<>();
 
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?", "Madrid",
-                        "Madrid", "Barcelona", "Málaga", "Burgos")) ;
+                        "Madrid", "Barcelona", "Málaga", "Burgos"));
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?", "Paris",
-                        "Paris", "Madrid", "Berlin", "Murcia"));
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál de estos países es el más grande?", "Alemania",
+                        "Alemania", "Siria", "Dinamarca", "Grecia"));
 
-                for (RadioButtonQuestion q: radioButtonQuestionList) {
+                videoQuestionList.add(new VideoQuestion("¿Cuál fué la capital del Imperio ruso (1721-1917)?", "San Petesburgo", R.raw.vidrusia));
+                videoQuestionList.add(new VideoQuestion("Cómo se llama la ciudad capital que aparece en el vídeo?", "Pekín", R.raw.vidchina));
+                videoQuestionList.add(new VideoQuestion("¿En qué país está este famoso castillo?", "Alemania", R.raw.vidalemania));
+                videoQuestionList.add(new VideoQuestion("¿Cómo se llama el país de los mil lagos?", "Finlandia", R.raw.vidfinlandia));
+                videoQuestionList.add(new VideoQuestion("¿Cuál es el lugar más profundo de los océanos de la tierra?", "Fosa de las marianas", R.raw.vidmarianas));
+                videoQuestionList.add(new VideoQuestion("¿Qué país quedó fusionado con Alemania tras el Anschluss?", "Austria", R.raw.vidww2));
+
+                for (RadioButtonQuestion q : radioButtonQuestionList) {
                     dao.insertRadioButtonQuestion(q);
+                }
+
+                for (VideoQuestion q : videoQuestionList) {
+                    dao.insertVideoQuestion(q);
                 }
 
             });
@@ -77,22 +96,41 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
                 QuestionDAO dao = INSTANCE.questionDAO();
-//                dao.deleteAllRadioButtonQuestions();
-//                dao.deleteAllCheckBoxQuestions();
-//                dao.deleteAllVideoQuestions();
+                dao.deleteAllRadioButtonQuestions();
+                dao.deleteAllCheckBoxQuestions();
+                dao.deleteAllVideoQuestions();
                 dao.deleteAllQuestions();
 
                 ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
+                //ArrayList<CheckBoxQuestion> checkBoxQuestionList = new ArrayList<>();
+                //ArrayList<SpinnerQuestion> spinnerQuestionList = new ArrayList<>();
+                //ArrayList<PictureQuestion> pictureQuestionList = new ArrayList<>();
+                //ArrayList<FlagsQuestion> flagsQuestionList = new ArrayList<>();
+
+                ArrayList<VideoQuestion> videoQuestionList = new ArrayList<>();
+                //ArrayList<AnthemQuestion> anthemQuestionList = new ArrayList<>();
 
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?", "Madrid",
-                        "Madrid", "Barcelona", "Málaga", "Burgos")) ;
+                        "Madrid", "Barcelona", "Málaga", "Burgos"));
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?", "Paris",
-                        "Paris", "Madrid", "Berlin", "Murcia"));
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál de estos países es el más grande?", "Alemania",
+                        "Alemania", "Siria", "Dinamarca", "Grecia"));
 
-                for (RadioButtonQuestion q: radioButtonQuestionList) {
+                videoQuestionList.add(new VideoQuestion("¿Cuál fué la capital del Imperio ruso (1721-1917)?", "San Petesburgo", R.raw.vidrusia));
+                videoQuestionList.add(new VideoQuestion("Cómo se llama la ciudad capital que aparece en el vídeo?", "Pekín", R.raw.vidchina));
+                videoQuestionList.add(new VideoQuestion("¿En qué país está este famoso castillo?", "Alemania", R.raw.vidalemania));
+                videoQuestionList.add(new VideoQuestion("¿Cómo se llama el país de los mil lagos?", "Finlandia", R.raw.vidfinlandia));
+                videoQuestionList.add(new VideoQuestion("¿Cuál es el lugar más profundo de los océanos de la tierra?", "Fosa de las marianas", R.raw.vidmarianas));
+                videoQuestionList.add(new VideoQuestion("¿Qué país quedó fusionado con Alemania tras el Anschluss?", "Austria", R.raw.vidww2));
+
+                for (RadioButtonQuestion q : radioButtonQuestionList) {
                     dao.insertRadioButtonQuestion(q);
                 }
+
+                for (VideoQuestion q : videoQuestionList) {
+                    dao.insertVideoQuestion(q);
+                }
+
 
             });
         }
