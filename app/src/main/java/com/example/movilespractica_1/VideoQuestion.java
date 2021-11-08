@@ -13,8 +13,8 @@ public class VideoQuestion extends Question{
     //Add way to answer question
 
 
-    public VideoQuestion(@NonNull String questionText, @NonNull int videoId) {
-        super(questionText, QuestionType.VIDEO);
+    public VideoQuestion(@NonNull String questionText, @NonNull String solution, @NonNull int videoId) {
+        super(questionText, QuestionType.VIDEO, solution);
         this.videoId = videoId;
     }
 

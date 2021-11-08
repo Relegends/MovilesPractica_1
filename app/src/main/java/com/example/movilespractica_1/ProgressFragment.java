@@ -76,15 +76,13 @@ public class ProgressFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mQuestionViewModel = new ViewModelProvider(getActivity()).get(QuestionViewModel.class);
+        mAllQuestions = mQuestionViewModel.getAllQuestions();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        mQuestionViewModel = new ViewModelProvider(getActivity()).get(QuestionViewModel.class);
-        mAllQuestions = mQuestionViewModel.getAllQuestions();
 
         View progressFragmentView = inflater.inflate(R.layout.fragment_progress, container, false);
 

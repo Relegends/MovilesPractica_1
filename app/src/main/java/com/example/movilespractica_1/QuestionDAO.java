@@ -23,6 +23,15 @@ public interface QuestionDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertQuestion(Question question);
 
+    @Query("DELETE FROM RadioButtonQuestion_Table")
+    void deleteAllRadioButtonQuestions();
+
+    @Query("DELETE FROM CheckBoxQuestion_Table")
+    void deleteAllCheckBoxQuestions();
+
+    @Query("DELETE FROM VideoQuestion_Table")
+    void deleteAllVideoQuestions();
+
     @Query("DELETE FROM Question_Table")
     void deleteAllQuestions();
 

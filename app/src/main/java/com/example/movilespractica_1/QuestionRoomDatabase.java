@@ -49,17 +49,17 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
                 QuestionDAO dao = INSTANCE.questionDAO();
-//                dao.deleteAllRadioButtonQuestions();
+                dao.deleteAllRadioButtonQuestions();
 //                dao.deleteAllCheckBoxQuestions();
 //                dao.deleteAllVideoQuestions();
                 dao.deleteAllQuestions();
 
                 ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?",
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?", "Madrid",
                         "Madrid", "Barcelona", "Málaga", "Burgos")) ;
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?",
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?", "Paris",
                         "Paris", "Madrid", "Berlin", "Murcia"));
 
                 for (RadioButtonQuestion q: radioButtonQuestionList) {
@@ -84,10 +84,10 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
 
                 ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?",
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?", "Madrid",
                         "Madrid", "Barcelona", "Málaga", "Burgos")) ;
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?",
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?", "Paris",
                         "Paris", "Madrid", "Berlin", "Murcia"));
 
                 for (RadioButtonQuestion q: radioButtonQuestionList) {

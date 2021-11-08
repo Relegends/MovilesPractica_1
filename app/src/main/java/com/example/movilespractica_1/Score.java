@@ -13,15 +13,15 @@ public class Score {
     private int id;
 
     @NonNull
-    private Configuration configuration;
+    private String userName;
 
     @NonNull
     @ColumnInfo(name = "points")
     private int points;
 
-    public Score(@NonNull Configuration configuration, @NonNull int points) {
+    public Score(@NonNull String userName, @NonNull int points) {
         id = (int) (Math.random() * 10000);
-        this.configuration = configuration;
+        this.userName = userName;
         this.points = points;
     }
 
@@ -34,12 +34,12 @@ public class Score {
     }
 
     @NonNull
-    public Configuration getConfiguration() {
-        return configuration;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setConfiguration(@NonNull Configuration configuration) {
-        this.configuration = configuration;
+    public void setUserName(@NonNull String userName) {
+        this.userName = userName;
     }
 
     public int getPoints() {
