@@ -7,35 +7,35 @@ import androidx.room.Entity;
 public class RadioButtonQuestion extends Question {
 
     @NonNull
-    private String correctAnswerText, wrongAnswerText1, wrongAnswerText2, wrongAnswerText3;
+    private String option1, option2, option3, option4;
 
     public RadioButtonQuestion(@NonNull String questionText, @NonNull String solution,
-                               @NonNull String correctAnswerText, @NonNull String wrongAnswerText1,
-                               @NonNull String wrongAnswerText2, @NonNull String wrongAnswerText3) {
+                               @NonNull String option1, @NonNull String option2,
+                               @NonNull String option3, @NonNull String option4) {
         super(questionText, QuestionType.RADIOBUTTON, solution);
-        this.correctAnswerText = correctAnswerText;
-        this.wrongAnswerText1 = wrongAnswerText1;
-        this.wrongAnswerText2 = wrongAnswerText2;
-        this.wrongAnswerText3 = wrongAnswerText3;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.option4 = option4;
     }
 
     @NonNull
-    public String getCorrectAnswerText() {
-        return correctAnswerText;
+    public String getOption4() {
+        return option4;
     }
 
     @NonNull
-    public String getWrongAnswerText1() {
-        return wrongAnswerText1;
+    public String getOption1() {
+        return option1;
     }
 
     @NonNull
-    public String getWrongAnswerText2() {
-        return wrongAnswerText2;
+    public String getOption2() {
+        return option2;
     }
 
     @NonNull
-    public String getWrongAnswerText3() {
-        return wrongAnswerText3;
+    public String getOption3() {
+        return option3;
     }
 }

@@ -223,7 +223,6 @@ public class ProgressFragment extends Fragment {
             case RADIOBUTTON:
                 RadioButtonQuestion rq = (RadioButtonQuestion) q;
                 disableVisibilityLayouts();
-                radioButtonCorrect.setText(rq.getCorrectAnswerText());
                 radioButtonLayout.setVisibility(View.VISIBLE);
                 break;
             case PICTURE:

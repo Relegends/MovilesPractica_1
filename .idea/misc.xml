@@ -13,8 +13,13 @@
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_result_questions.xml" value="0.5412130637636081" />
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_results_questions.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Ejercicios/MovilesPractica_1/app/src/main/res/layout/fragment_show_answers.xml" value="0.33" />
+        <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3295" />
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/drawable/alemania_background.xml" value="0.156" />
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/drawable/andalucia_image_background.xml" value="0.156" />
+        <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/drawable/canarias_background.xml" value="0.3295" />
+        <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/drawable/mundo_background.xml" value="0.3295" />
+        <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/drawable/poland_pmage_background.xml" value="0.202" />
+        <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/drawable/serbia_background.xml" value="0.3295" />
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/layout/activity_clasification.xml" value="0.5" />
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/layout/activity_configuration.xml" value="0.5" />
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/layout/activity_game.xml" value="0.33" />
@@ -24,6 +29,7 @@
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/layout/fragment_radio_button_question.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/layout/fragment_result_questions.xml" value="0.75" />
         <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/layout/fragment_show_answers.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/javie/OneDrive/Documentos/AndroidStudio/MovilesPractica_1/app/src/main/res/mipmap-anydpi-v26/alemania.xml" value="0.3295" />
       </map>
     </option>
   </component>
