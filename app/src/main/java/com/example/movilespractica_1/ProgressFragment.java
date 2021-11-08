@@ -127,6 +127,7 @@ public class ProgressFragment extends Fragment {
         andaluciaFlag = (ImageView)  progressFragmentView.findViewById(R.id.andaluciaFlag);
         serbiaFlag = (ImageView)  progressFragmentView.findViewById(R.id.serbiaFlag);
 
+
         loadNextQuestion();
 
         nextQuestion();
@@ -201,7 +202,7 @@ public class ProgressFragment extends Fragment {
             case RADIOBUTTON:
                 RadioButtonQuestion rq = (RadioButtonQuestion) q;
                 disableVisibilityLayouts();
-                radioButtonCorrect.setText(rq.getCorrectAnswerText());
+
                 radioButtonLayout.setVisibility(View.VISIBLE);
                 break;
             case PICTURE:
