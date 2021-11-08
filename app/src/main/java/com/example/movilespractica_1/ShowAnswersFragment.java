@@ -66,7 +66,7 @@ public class ShowAnswersFragment extends Fragment {
             public void onClick(View v) {
                 int points = GameLogic.GAME.getPoints();
 
-                Score score = new Score(mConfigurationViewModel.getConfiguration(), points);
+                Score score = new Score(mConfigurationViewModel.getConfiguration().getUserName(), points);
                 mScoreViewModel.insertScore(score);
                 GameLogic.GAME.changeActivity(getActivity());
             }

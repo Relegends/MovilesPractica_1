@@ -17,9 +17,13 @@ public class Question {
     @ColumnInfo(name = "Question_Type")
     private QuestionType questionType;
 
-    public Question(@NonNull String questionText, @NonNull QuestionType questionType) {
+    @NonNull
+    private String solution;
+
+    public Question(@NonNull String questionText, @NonNull QuestionType questionType, @NonNull String solution) {
         this.questionText = questionText;
         this.questionType = questionType;
+        this.solution = solution;
     }
 
     @NonNull
@@ -38,5 +42,14 @@ public class Question {
 
     public void setQuestionType(@NonNull QuestionType questionType) {
         this.questionType = questionType;
+    }
+
+    @NonNull
+    public String getSolution() {
+        return solution;
+    }
+
+    public void setSolution(@NonNull String solution) {
+        this.solution = solution;
     }
 }

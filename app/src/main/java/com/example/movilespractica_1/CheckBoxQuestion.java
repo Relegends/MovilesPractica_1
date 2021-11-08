@@ -15,9 +15,9 @@ public class CheckBoxQuestion extends Question{
     private String wrongAnswerText;
 
 
-    public CheckBoxQuestion(@NonNull String questionText,
+    public CheckBoxQuestion(@NonNull String questionText, @NonNull String solution,
                                @NonNull String correctAnswerText, @NonNull String wrongAnswerText) {
-        super(questionText, QuestionType.CHECKBOX);
+        super(questionText, QuestionType.CHECKBOX, solution);
         this.correctAnswerText = correctAnswerText;
         this.wrongAnswerText = wrongAnswerText;
     }

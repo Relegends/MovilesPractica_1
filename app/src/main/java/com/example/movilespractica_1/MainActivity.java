@@ -30,4 +30,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ConfigurationActivity.class);
         this.startActivity(intent);
     }
+
+    public void scores(View view) {
+        Intent intent = new Intent(this, ClassificationActivity.class);
+        this.startActivity(intent);
+    }
 }
