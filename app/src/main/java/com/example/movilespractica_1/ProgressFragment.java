@@ -1,6 +1,7 @@
 package com.example.movilespractica_1;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -46,10 +47,19 @@ public class ProgressFragment extends Fragment {
 
     TextView questionNumber, questionText;
 
-    VideoView videoView;
+    // Video
+    ConstraintLayout videoLayout;
     MediaController mediaController;
     String videoPath;
     Uri uri;
+    VideoView videoView;
+
+    // Audio
+    ConstraintLayout audioLayout;
+    MediaPlayer mediaPlayer;
+    Button playButton;
+    Button pauseButton;
+    Button stopButton;
 
     // Question 1
     RadioButton radioButtonCorrect;
@@ -90,16 +100,6 @@ public class ProgressFragment extends Fragment {
 
         questionNumber = (TextView) progressFragmentView.findViewById(R.id.numberQuestion);
         questionText = (TextView) progressFragmentView.findViewById(R.id.text_question);
-
-        //videoView = progressFragmentView.findViewById(R.id.);
-        //videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.;
-
-//        Uri uri = Uri.parse((videoPath));
-//        videoView.setVideoURI(uri);
-//
-//        mediaController = new MediaController(getContext());
-//        videoView.setMediaController(mediaController);
-//        mediaController.setAnchorView(videoView);
 
         progressBar = progressFragmentView.findViewById(R.id.progressBar);
         countDownEvent();
