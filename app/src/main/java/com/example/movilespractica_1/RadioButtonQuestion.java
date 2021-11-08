@@ -10,7 +10,7 @@ public class RadioButtonQuestion extends Question {
     private String correctAnswerText, wrongAnswerText1, wrongAnswerText2, wrongAnswerText3;
 
     public RadioButtonQuestion(@NonNull String questionText,
-                               @NonNull String correctAnswerTextnwerText, @NonNull String wrongAnswerText1,
+                               @NonNull String correctAnswerText, @NonNull String wrongAnswerText1,
                                @NonNull String wrongAnswerText2, @NonNull String wrongAnswerText3) {
         super(questionText, QuestionType.RADIOBUTTON);
         this.correctAnswerText = correctAnswerText;

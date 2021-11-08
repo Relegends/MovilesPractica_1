@@ -10,15 +10,15 @@ public class VideoQuestion extends Question{
     @NonNull
     private int videoId;
 
-    
+    //Add way to answer question
+
 
     public VideoQuestion(@NonNull String questionText, @NonNull int videoId) {
         super(questionText, QuestionType.VIDEO);
         this.videoId = videoId;
     }
 
-    @NonNull
-    private int getVideoId() {
+    public int getVideoId() {
         return videoId;
     }
 }

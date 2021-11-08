@@ -9,26 +9,26 @@ import java.util.Arrays;
 public class CheckBoxQuestion extends Question{
 
     @NonNull
-    private String correctAnswerText[];
+    private String correctAnswerText;
 
     @NonNull
-    private String wrongAnswerText[];
+    private String wrongAnswerText;
 
 
     public CheckBoxQuestion(@NonNull String questionText,
-                               @NonNull String correctAnswerText[], @NonNull String wrongAnswerText[]) {
+                               @NonNull String correctAnswerText, @NonNull String wrongAnswerText) {
         super(questionText, QuestionType.CHECKBOX);
-        this.correctAnswerText = Arrays.copyOf(correctAnswerText, correctAnswerText.length);
-        this.wrongAnswerText = Arrays.copyOf(wrongAnswerText, wrongAnswerText.length);
+        this.correctAnswerText = correctAnswerText;
+        this.wrongAnswerText = wrongAnswerText;
     }
 
     @NonNull
-    public String[] getCorrectAnswerText() {
+    public String getCorrectAnswerText() {
         return correctAnswerText;
     }
 
     @NonNull
-    public String[] getWrongAnswerText() {
+    public String getWrongAnswerText() {
         return wrongAnswerText;
     }
 }

@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Question_Table")
-public abstract class Question {
+public class Question {
 
     @PrimaryKey
     @NonNull
@@ -30,5 +30,13 @@ public abstract class Question {
     @NonNull
     public QuestionType getQuestionType() {
         return questionType;
+    }
+
+    public void setQuestionText(@NonNull String questionText) {
+        this.questionText = questionText;
+    }
+
+    public void setQuestionType(@NonNull QuestionType questionType) {
+        this.questionType = questionType;
     }
 }

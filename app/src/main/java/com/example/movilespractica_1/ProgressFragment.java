@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -24,8 +27,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ProgressFragment extends Fragment {
+
+    private QuestionViewModel mQuestionViewModel;
+
+    private ArrayList<Question> mAllQuestions = new ArrayList<>();
 
     ProgressBar progressBar;
     CountDownTimer countDownTimer;
@@ -44,6 +54,7 @@ public class ProgressFragment extends Fragment {
     // Question 1
     RadioButton radioButtonCorrect;
     RadioGroup radioGroup;
+    ConstraintLayout radioButtonLayout;
 
     // Question 2
     ConstraintLayout checkBoxesLayout;
@@ -65,11 +76,16 @@ public class ProgressFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        mQuestionViewModel = new ViewModelProvider(getActivity()).get(QuestionViewModel.class);
+        mAllQuestions = mQuestionViewModel.getAllQuestions();
+
         View progressFragmentView = inflater.inflate(R.layout.fragment_progress, container, false);
 
         questionNumber = (TextView) progressFragmentView.findViewById(R.id.numberQuestion);
@@ -77,18 +93,20 @@ public class ProgressFragment extends Fragment {
 
         //videoView = progressFragmentView.findViewById(R.id.);
         //videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.;
-        Uri uri = Uri.parse((videoPath));
-        videoView.setVideoURI(uri);
 
-        mediaController = new MediaController(getContext());
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
+//        Uri uri = Uri.parse((videoPath));
+//        videoView.setVideoURI(uri);
+//
+//        mediaController = new MediaController(getContext());
+//        videoView.setMediaController(mediaController);
+//        mediaController.setAnchorView(videoView);
 
         progressBar = progressFragmentView.findViewById(R.id.progressBar);
         countDownEvent();
 
         radioButtonCorrect = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonCorrect);
         radioGroup = (RadioGroup) progressFragmentView.findViewById(R.id.radioGroup);
+        radioButtonLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.radioButtonsLayout);
 
         checkBoxesLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.checkBoxesLayout);
         checkBoxCorrect1 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox1);
@@ -110,6 +128,8 @@ public class ProgressFragment extends Fragment {
         alemaniaFlag = (ImageView)  progressFragmentView.findViewById(R.id.alemaniaFlag);
         andaluciaFlag = (ImageView)  progressFragmentView.findViewById(R.id.andaluciaFlag);
         serbiaFlag = (ImageView)  progressFragmentView.findViewById(R.id.serbiaFlag);
+
+        loadNextQuestion();
 
         nextQuestion();
         clickFlags();
@@ -175,32 +195,40 @@ public class ProgressFragment extends Fragment {
     }
 
     private void loadNextQuestion() {
-        switch (GameLogic.GAME.getIndexShownQuestion()) {
-            case 1:
-                radioGroup.setVisibility(View.GONE);
-                questionNumber.setText("Question 2");
-                questionText.setText("¿Cuáles de estos países están en la UE?");
-                checkBoxesLayout.setVisibility(View.VISIBLE);
+        questionNumber.setText("Question " + GameLogic.GAME.getIndexShownQuestion());
+        Question q = mAllQuestions.get(GameLogic.GAME.getNextQuestionDB());
+        questionText.setText(q.getQuestionText());
+
+        switch (q.getQuestionType()) {
+            case RADIOBUTTON:
+                RadioButtonQuestion rq = (RadioButtonQuestion) q;
+                disableVisibilityLayouts();
+                radioButtonCorrect.setText(rq.getCorrectAnswerText());
+                radioButtonLayout.setVisibility(View.VISIBLE);
                 break;
-            case 2:
-                checkBoxesLayout.setVisibility(View.GONE);
-                questionNumber.setText("Question 3");
-                questionText.setText("¿Qué país es este?");
+            case PICTURES:
+                disableVisibilityLayouts();
+
                 imageLayout.setVisibility(View.VISIBLE);
                 break;
-            case 3:
-                imageLayout.setVisibility(View.GONE);
-                questionNumber.setText("Question 4");
-                questionText.setText("Seleccione el país más\npequeño del mundo:");
+            case SPINNER:
+                disableVisibilityLayouts();
+
                 spinnerLayout.setVisibility(View.VISIBLE);
                 break;
-            case 4:
-                spinnerLayout.setVisibility(View.GONE);
-                questionNumber.setText("Question 5");
-                questionText.setText("¿Cuál es la bandera de Serbia?");
+            case VIDEO:
+                disableVisibilityLayouts();
+
                 flagLayout.setVisibility(View.VISIBLE);
                 break;
         }
+    }
+
+    private void disableVisibilityLayouts() {
+        radioButtonLayout.setVisibility(View.GONE);
+        checkBoxesLayout.setVisibility(View.GONE);
+        imageLayout.setVisibility(View.GONE);
+        spinnerLayout.setVisibility(View.GONE);
     }
 
     private void checkAnswer() {

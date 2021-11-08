@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovilesPractica_1">
         <activity
+            android:name=".ClassificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigurationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ResultsActivity"
             android:exported="false" />
         <activity

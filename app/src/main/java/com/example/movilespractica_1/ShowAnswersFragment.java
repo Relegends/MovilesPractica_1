@@ -1,23 +1,25 @@
 package com.example.movilespractica_1;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 
 public class ShowAnswersFragment extends Fragment {
 
     ConstraintLayout questions[] = new ConstraintLayout[5];
 
-    Button replayButton;
+    Button seeScoresButton;
+
+    private ScoreViewModel mScoreViewModel;
+    private ConfigurationViewModel mConfigurationViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,14 +32,17 @@ public class ShowAnswersFragment extends Fragment {
         // Inflate the layout for this fragment
         View showFragmentAnswersView = inflater.inflate(R.layout.fragment_show_answers, container, false);
 
+        mScoreViewModel = new ViewModelProvider(getActivity()).get(ScoreViewModel.class);
+        mConfigurationViewModel = new ViewModelProvider(getActivity()).get(ConfigurationViewModel.class);
+
         questions[0] = showFragmentAnswersView.findViewById(R.id.Answer1);
         questions[1] = showFragmentAnswersView.findViewById(R.id.Answer2);
         questions[2] = showFragmentAnswersView.findViewById(R.id.Answer3);
         questions[3] = showFragmentAnswersView.findViewById(R.id.Answer4);
         questions[4] = showFragmentAnswersView.findViewById(R.id.Answer5);
 
-        replayButton = (Button) showFragmentAnswersView.findViewById(R.id.replayButton);
-        replay();
+        seeScoresButton = (Button) showFragmentAnswersView.findViewById(R.id.seeScoresButton);
+        seeScores();
 
         answerQuestions(GameLogic.GAME.getAnswers());
 
@@ -55,14 +60,28 @@ public class ShowAnswersFragment extends Fragment {
         }
     }
 
-    public void replay() {
-        replayButton.setOnClickListener(new View.OnClickListener() {
+    public void seeScores() {
+        seeScoresButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameLogic.GAME.resetIndexQuestion();
-                GameLogic.GAME.resetAnswers();
+                int points = GameLogic.GAME.getPoints();
+
+                Score score = new Score(mConfigurationViewModel.getConfiguration(), points);
+                mScoreViewModel.insertScore(score);
                 GameLogic.GAME.changeActivity(getActivity());
             }
         });
     }
+
+//    public void replay() {
+//        replayButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                GameLogic.GAME.resetIndexQuestion();
+//                GameLogic.GAME.resetAnswers();
+//                  GameLogic.GAME.resetPoints();
+//                GameLogic.GAME.changeActivity(getActivity());
+//            }
+//        });
+//    }
 }

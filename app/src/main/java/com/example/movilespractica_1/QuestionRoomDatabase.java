@@ -8,10 +8,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Question.class}, version = 1, exportSchema = false)
+@Database(entities = {Question.class, RadioButtonQuestion.class, CheckBoxQuestion.class, VideoQuestion.class}, version = 1, exportSchema = false)
 public abstract class QuestionRoomDatabase extends RoomDatabase {
 
     public abstract QuestionDAO questionDAO();
@@ -28,10 +29,12 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     QuestionRoomDatabase.class, "questions_database")
                             .addCallback(sRoomDatabaseCallback)
+                            .allowMainThreadQueries()
                             .build();
                 }
             }
         }
+        INSTANCE.getOpenHelper().getWritableDatabase();
         return INSTANCE;
     }
 
@@ -46,13 +49,51 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
                 QuestionDAO dao = INSTANCE.questionDAO();
-                dao.deleteAllButtonCheckBoxQuestions();
-                dao.deleteAllCheckBoxQuestions();
+//                dao.deleteAllRadioButtonQuestions();
+//                dao.deleteAllCheckBoxQuestions();
+//                dao.deleteAllVideoQuestions();
+                dao.deleteAllQuestions();
 
-//                Question word = new Word("Hello");
-//                dao.insert(word);
-//                word = new Word("World");
-//                dao.insert(word);
+                ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
+
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?",
+                        "Madrid", "Barcelona", "Málaga", "Burgos")) ;
+
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?",
+                        "Paris", "Madrid", "Berlin", "Murcia"));
+
+                for (RadioButtonQuestion q: radioButtonQuestionList) {
+                    dao.insertRadioButtonQuestion(q);
+                }
+
+            });
+        }
+
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
+
+            databaseWriteExecutor.execute(() -> {
+                // Populate the database in the background.
+                // If you want to start with more words, just add them.
+                QuestionDAO dao = INSTANCE.questionDAO();
+//                dao.deleteAllRadioButtonQuestions();
+//                dao.deleteAllCheckBoxQuestions();
+//                dao.deleteAllVideoQuestions();
+                dao.deleteAllQuestions();
+
+                ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
+
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?",
+                        "Madrid", "Barcelona", "Málaga", "Burgos")) ;
+
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?",
+                        "Paris", "Madrid", "Berlin", "Murcia"));
+
+                for (RadioButtonQuestion q: radioButtonQuestionList) {
+                    dao.insertRadioButtonQuestion(q);
+                }
+
             });
         }
     };

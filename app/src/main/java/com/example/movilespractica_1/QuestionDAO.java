@@ -1,24 +1,40 @@
 package com.example.movilespractica_1;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.List;
 
+@Dao
 public interface QuestionDAO {
-    // allowing the insert of the same word multiple times by passing a
-    // conflict resolution strategy
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertButtonCheckBoxQuestions(RadioButtonQuestion question);
+    void insertRadioButtonQuestion(RadioButtonQuestion question);
 
-    @Query("DELETE FROM RadioButtonQuestion_Table")
-    void deleteAllButtonCheckBoxQuestions();
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertCheckBoxQuestion(CheckBoxQuestion question);
 
-    @Query("DELETE FROM CheckBoxQuestion_Table")
-    void deleteAllCheckBoxQuestions();
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertVideoQuestion(VideoQuestion question);
 
-    @Query("SELECT * FROM RadioButtonQuestion_Table ORDER BY question ASC")
-    LiveData<List<RadioButtonQuestion>> getButtonCheckBoxQuestions();
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertQuestion(Question question);
+
+    @Query("DELETE FROM Question_Table")
+    void deleteAllQuestions();
+
+    @Query("SELECT * FROM RadioButtonQuestion_Table")
+    List<RadioButtonQuestion> getRadioButtonQuestions();
+
+    @Query("SELECT * FROM CheckBoxQuestion_Table")
+    List<CheckBoxQuestion> getCheckBoxQuestions();
+
+    @Query("SELECT * FROM VideoQuestion_Table")
+    List<VideoQuestion> getVideoQuestions();
+
+    @Query("SELECT * FROM Question_Table")
+    List<Question> getQuestions();
 }
