@@ -124,10 +124,10 @@ public class ProgressFragment extends Fragment {
 
         nextQuestionButton = (Button) progressFragmentView.findViewById(R.id.skipQuestion);
 
-        canariasFlag = (ImageView)  progressFragmentView.findViewById(R.id.canariasFlag);
-        alemaniaFlag = (ImageView)  progressFragmentView.findViewById(R.id.alemaniaFlag);
-        andaluciaFlag = (ImageView)  progressFragmentView.findViewById(R.id.andaluciaFlag);
-        serbiaFlag = (ImageView)  progressFragmentView.findViewById(R.id.serbiaFlag);
+        canariasFlag = (ImageView) progressFragmentView.findViewById(R.id.canariasFlag);
+        alemaniaFlag = (ImageView) progressFragmentView.findViewById(R.id.alemaniaFlag);
+        andaluciaFlag = (ImageView) progressFragmentView.findViewById(R.id.andaluciaFlag);
+        serbiaFlag = (ImageView) progressFragmentView.findViewById(R.id.serbiaFlag);
 
         // Video
         videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
@@ -159,6 +159,10 @@ public class ProgressFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 checkAnswer();
+
+                videoView.stopPlayback();
+                mediaPlayer.stop();
+
                 GameLogic.GAME.nextQuestion();
                 loadNextQuestion();
             }
@@ -292,5 +296,55 @@ public class ProgressFragment extends Fragment {
                 GameLogic.GAME.changeActivity(getActivity());
             }
         }.start();
+    }
+
+    // Mediaplayer handling
+
+    public void setMediaPlayer() {
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer == null) {
+                    mediaPlayer = MediaPlayer.create(getContext(), R.raw.himnouk);
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mediaPlayer) {
+                            stopPlayer();
+                        }
+                    });
+                }
+                mediaPlayer.start();
+            }
+        });
+
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer != null) {
+                    mediaPlayer.pause();
+                }
+            }
+        });
+        stopButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                stopPlayer();
+            }
+        });
+    }
+
+    private void stopPlayer() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+            //Toast.makeText(getContext(), "Recursos liberados", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        stopPlayer();
     }
 }
