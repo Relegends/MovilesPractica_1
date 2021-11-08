@@ -147,9 +147,10 @@ public class ProgressFragment extends Fragment {
         stopButton = (Button) progressFragmentView.findViewById(R.id.stopMusicButton);
 
         loadNextQuestion();
-
         nextQuestion();
+
         clickFlags();
+        setMediaPlayer();
 
         return progressFragmentView;
     }
