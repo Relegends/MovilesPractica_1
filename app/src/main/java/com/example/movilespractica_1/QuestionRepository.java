@@ -17,6 +17,10 @@ public class QuestionRepository {
     private List<RadioButtonQuestion> allRadioButtonQuestions;
     private List<CheckBoxQuestion> allCheckBoxQuestions;
     private List<VideoQuestion> allVideoQuestions;
+    private List<SpinnerQuestion> allSpinnerQuestions;
+    private List<AnthemQuestion> allAnthemQuestions;
+    private List<PictureQuestion> allPictureQuestions;
+    private List<FlagsQuestion> allFlagsQuestions;
 
     QuestionRepository(Application application) {
         QuestionRoomDatabase db = QuestionRoomDatabase.getDatabase(application);
@@ -24,6 +28,10 @@ public class QuestionRepository {
         allRadioButtonQuestions = questionDAO.getRadioButtonQuestions();
         allCheckBoxQuestions = questionDAO.getCheckBoxQuestions();
         allVideoQuestions = questionDAO.getVideoQuestions();
+        allSpinnerQuestions = questionDAO.getSpinnerQuestions();
+        allAnthemQuestions = questionDAO.getAnthemQuestions();
+        allPictureQuestions = questionDAO.getPictureQuestions();
+        allFlagsQuestions = questionDAO.getFlagsQuestions();
     }
 
     List<RadioButtonQuestion> getAllRadioButtonQuestions() {
@@ -38,6 +46,21 @@ public class QuestionRepository {
         return allVideoQuestions;
     }
 
+    List<SpinnerQuestion> getAllSpinnerQuestions() {
+        return allSpinnerQuestions;
+    }
+
+    public List<AnthemQuestion> getAllAnthemQuestions() {
+        return allAnthemQuestions;
+    }
+
+    public List<PictureQuestion> getAllPictureQuestions() {
+        return allPictureQuestions;
+    }
+
+    public List<FlagsQuestion> getAllFlagsQuestions() {
+        return allFlagsQuestions;
+    }
 
     void insertRadioButtonQuestion(RadioButtonQuestion question) {
         QuestionRoomDatabase.databaseWriteExecutor.execute(() -> {
@@ -54,6 +77,30 @@ public class QuestionRepository {
     void insertVideoQuestion(VideoQuestion question) {
         QuestionRoomDatabase.databaseWriteExecutor.execute(() -> {
             questionDAO.insertVideoQuestion(question);
+        });
+    }
+
+    void insertSpinnerQuestion(SpinnerQuestion question) {
+        QuestionRoomDatabase.databaseWriteExecutor.execute(() -> {
+            questionDAO.insertSpinnerQuestion(question);
+        });
+    }
+
+    void insertAnthemQuestion(AnthemQuestion question) {
+        QuestionRoomDatabase.databaseWriteExecutor.execute(() -> {
+            questionDAO.insertAnthemQuestion(question);
+        });
+    }
+
+    void insertPictureQuestion(PictureQuestion question) {
+        QuestionRoomDatabase.databaseWriteExecutor.execute(() -> {
+            questionDAO.insertPictureQuestion(question);
+        });
+    }
+
+    void insertFlagsQuestion(FlagsQuestion question) {
+        QuestionRoomDatabase.databaseWriteExecutor.execute(() -> {
+            questionDAO.insertFlagsQuestion(question);
         });
     }
 

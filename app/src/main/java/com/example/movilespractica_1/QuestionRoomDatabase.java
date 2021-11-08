@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Question.class, RadioButtonQuestion.class, CheckBoxQuestion.class, VideoQuestion.class}, version = 1, exportSchema = false)
+@Database(entities = {Question.class, RadioButtonQuestion.class, CheckBoxQuestion.class,
+        VideoQuestion.class, SpinnerQuestion.class, AnthemQuestion.class, PictureQuestion.class,
+        FlagsQuestion.class}, version = 1, exportSchema = false)
 public abstract class QuestionRoomDatabase extends RoomDatabase {
 
     public abstract QuestionDAO questionDAO();
@@ -57,12 +59,12 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
 
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?", "Madrid",
-                        "Madrid", "Barcelona", "Málaga", "Burgos")) ;
+                        "Madrid", "Barcelona", "Málaga", "Burgos"));
 
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?", "Paris",
                         "Paris", "Madrid", "Berlin", "Murcia"));
 
-                for (RadioButtonQuestion q: radioButtonQuestionList) {
+                for (RadioButtonQuestion q : radioButtonQuestionList) {
                     dao.insertRadioButtonQuestion(q);
                 }
 
@@ -85,12 +87,12 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 ArrayList<RadioButtonQuestion> radioButtonQuestionList = new ArrayList<>();
 
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?", "Madrid",
-                        "Madrid", "Barcelona", "Málaga", "Burgos")) ;
+                        "Madrid", "Barcelona", "Málaga", "Burgos"));
 
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Francia?", "Paris",
                         "Paris", "Madrid", "Berlin", "Murcia"));
 
-                for (RadioButtonQuestion q: radioButtonQuestionList) {
+                for (RadioButtonQuestion q : radioButtonQuestionList) {
                     dao.insertRadioButtonQuestion(q);
                 }
 
