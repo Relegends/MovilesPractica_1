@@ -129,6 +129,23 @@ public class ProgressFragment extends Fragment {
         andaluciaFlag = (ImageView)  progressFragmentView.findViewById(R.id.andaluciaFlag);
         serbiaFlag = (ImageView)  progressFragmentView.findViewById(R.id.serbiaFlag);
 
+        // Video
+        videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
+        videoView = progressFragmentView.findViewById(R.id.videoView);
+        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidmarianas;
+        Uri uri = Uri.parse((videoPath));
+        videoView.setVideoURI(uri);
+
+        mediaController = new MediaController(getContext());
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+
+        // Audio
+        audioLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.audioLayout);
+        playButton = (Button) progressFragmentView.findViewById(R.id.playMusicButton);
+        pauseButton = (Button) progressFragmentView.findViewById(R.id.pauseMusicButton);
+        stopButton = (Button) progressFragmentView.findViewById(R.id.stopMusicButton);
+
         loadNextQuestion();
 
         nextQuestion();
