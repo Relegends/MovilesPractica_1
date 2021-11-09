@@ -28,8 +28,6 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class ProgressFragment extends Fragment {
 

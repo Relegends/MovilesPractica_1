@@ -6,25 +6,54 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
-import java.util.concurrent.TimeUnit;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserWarning.userWarningDialogInterface {
 
     private ConfigurationViewModel configurationViewModel;
+    private Button playButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         GameLogic.GAME.setShownActivity(this);
-        configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
+        playButton = (Button) findViewById(R.id.playButton);
     }
 
     public void play(View view) {
-        GameLogic.GAME.setNumMaxQuestions(configurationViewModel.getConfiguration().getNumQuestionsSelected());
-        GameLogic.GAME.setUserName(configurationViewModel.getConfiguration().getUserName());
-        GameLogic.GAME.changeActivity(this);
+
+        configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
+        Configuration configuration = configurationViewModel.getConfiguration();
+
+        if (!configuration.getUserName().equals("Anónimo")) {
+            GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
+            GameLogic.GAME.setUserName(configuration.getUserName());
+            GameLogic.GAME.changeActivity(this);
+        } else {
+            openUserWarning();
+        }
+    }
+
+    public void openUserWarning() {
+        UserWarning userWarning = new UserWarning();
+        userWarning.show(getSupportFragmentManager(), "Aviso");
+    }
+
+    @Override
+    public void sendAnswerToActivity(boolean answer) {
+
+        configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
+        Configuration configuration = configurationViewModel.getConfiguration();
+
+        if (answer) {
+            GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
+            GameLogic.GAME.setUserName(configuration.getUserName());
+            GameLogic.GAME.changeActivity(this);
+        } else {
+            Intent intent = new Intent(this, ConfigurationActivity.class);
+            this.startActivity(intent);
+        }
     }
 
     public void options(View view) {

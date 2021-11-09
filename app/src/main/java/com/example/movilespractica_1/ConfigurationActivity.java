@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
@@ -33,11 +34,18 @@ public class ConfigurationActivity extends AppCompatActivity {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
 
-        Configuration configuration = new Configuration();
-        configuration.setNumQuestionsSelected(Integer.parseInt((String) radioButton.getText()));
-        configuration.setUserName(userName.getText().toString());
+        if(radioButton != null) {
+            Configuration configuration = new Configuration();
+            configuration.setNumQuestionsSelected(Integer.parseInt((String) radioButton.getText()));
+            configuration.setUserName(userName.getText().toString());
 
-        configurationViewModel.deleteConfiguration();
-        configurationViewModel.insertConfiguration(configuration);
+            configurationViewModel.deleteConfiguration();
+            configurationViewModel.insertConfiguration(configuration);
+
+            Toast.makeText(this, "Ajustes guardados", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this, "Rellene toda la configuración", Toast.LENGTH_SHORT).show();
+        }
     }
 }
