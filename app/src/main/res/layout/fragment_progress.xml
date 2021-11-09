@@ -153,10 +153,9 @@
                 android:id="@+id/checkBox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="124dp"
+                android:layout_marginStart="66dp"
                 android:layout_marginTop="32dp"
                 android:text="Alemania"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/checkBox1"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -174,7 +173,7 @@
                 android:id="@+id/checkBox4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="148dp"
+                android:layout_marginStart="66dp"
                 android:layout_marginTop="44dp"
                 android:text="Italia"
                 app:layout_constraintStart_toEndOf="@+id/checkBox3"
@@ -268,7 +267,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
             app:layout_constraintVertical_bias="1.0"
-            tools:visibility="visible">
+            tools:visibility="invisible">
 
             <ImageView
                 android:id="@+id/flag1"
@@ -342,16 +341,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
-            tools:visibility="visible">
+            tools:visibility="invisible">
 
             <EditText
-                android:id="@+id/answer"
+                android:id="@+id/answerVideo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:hint="Name"
+                android:hint="Respuesta"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -388,7 +387,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
             app:layout_constraintVertical_bias="1.0"
-            tools:visibility="invisible">
+            tools:visibility="visible">
+
+            <EditText
+                android:id="@+id/answerAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Respuesta"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stopMusicButton" />
 
             <Button
                 android:id="@+id/playMusicButton"

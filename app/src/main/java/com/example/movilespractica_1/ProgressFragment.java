@@ -136,7 +136,7 @@ public class ProgressFragment extends Fragment {
         videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
         videoView = progressFragmentView.findViewById(R.id.videoView);
 
-        videoPlainText = (EditText) progressFragmentView.findViewById(R.id.answer);
+        videoPlainText = (EditText) progressFragmentView.findViewById(R.id.answerVideo);
 
         mediaController = new MediaController(getContext());
         videoView.setMediaController(mediaController);
