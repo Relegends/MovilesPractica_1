@@ -39,7 +39,7 @@ public class ShowAnswersFragment extends Fragment {
         questions[1] = showFragmentAnswersView.findViewById(R.id.Answer2);
         questions[2] = showFragmentAnswersView.findViewById(R.id.Answer3);
         questions[3] = showFragmentAnswersView.findViewById(R.id.Answer4);
-        questions[4] = showFragmentAnswersView.findViewById(R.id.Answer5);
+//        questions[4] = showFragmentAnswersView.findViewById(R.id.Answer5);
 //        questions[5] = showFragmentAnswersView.findViewById(R.id.Answer6);
 //        questions[6] = showFragmentAnswersView.findViewById(R.id.Answer7);
 //        questions[7] = showFragmentAnswersView.findViewById(R.id.Answer8);
