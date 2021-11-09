@@ -81,9 +81,9 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Etiopía?", "Adís Abeba",
                         "Abuya", "Tokio", "Zagreb", "Adís Abeba"));
 
-                checkBoxQuestionList.add(new CheckBoxQuestion("¿Cuáles de estos países pertenecen a la UE?", "", "Bélgica", "Portugal", "Turquía", "Rusia"));
+                checkBoxQuestionList.add(new CheckBoxQuestion("¿Cuáles de estos países pertenecen a la UE?", "Bélgica y Portugal", "Bélgica", "Portugal", "Turquía", "Rusia"));
 
-                spinnerQuestionList.add(new SpinnerQuestion("Seleccione el país más pequeño del mundo:", "Ciudad del Vaticano", "Montenegro", "Andorra", "Corea del Sur", "Ciudad del Vaticano"));
+                spinnerQuestionList.add(new SpinnerQuestion("Seleccione el país más pequeño del mundo", "Ciudad del Vaticano", "Montenegro", "Andorra", "Corea del Sur", "Ciudad del Vaticano"));
                 spinnerQuestionList.add(new SpinnerQuestion("Selecciona el país que se encuentra en América", "Honduras", "Honduras", "Malasia", "Papúa Nueva Guinea", "Algeria"));
 
                 pictureQuestionList.add(new PictureQuestion("¿Qué país es este?", "Polonia", R.mipmap.poland_pmage_foreground));
@@ -91,7 +91,7 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
 
                 flagsQuestionList.add(new FlagsQuestion("¿Cuál es la bandera de Serbia?", Integer.toString(R.mipmap.serbia_foreground), R.mipmap.canarias_foreground, R.mipmap.alemania_foreground, R.mipmap.andalucia_image_foreground, R.mipmap.serbia_foreground));
 
-                videoQuestionList.add(new VideoQuestion("¿Cuál fué la capital del Imperio ruso (1721-1917)?", "San Petesburgo", R.raw.vidrusia));
+                videoQuestionList.add(new VideoQuestion("¿Cuál fué la capital del Imperio ruso (1721-1917)?", "San Petersburgo", R.raw.vidrusia));
                 videoQuestionList.add(new VideoQuestion("¿Cómo se llama la ciudad capital que aparece en el vídeo?", "Pekín", R.raw.vidchina));
                 videoQuestionList.add(new VideoQuestion("¿En qué país está este famoso castillo?", "Alemania", R.raw.vidalemania));
                 videoQuestionList.add(new VideoQuestion("¿Cómo se llama el país de los mil lagos?", "Finlandia", R.raw.vidfinlandia));

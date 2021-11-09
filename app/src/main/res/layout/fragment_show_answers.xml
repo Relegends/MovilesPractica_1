@@ -53,6 +53,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question1" />
 
                 <TextView
+                    android:id="@+id/textSol1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -119,6 +120,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question2" />
 
                 <TextView
+                    android:id="@+id/textSol2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -185,7 +187,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question3" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textSol3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -266,6 +268,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question4" />
 
                 <TextView
+                    android:id="@+id/textSol4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -326,10 +329,18 @@
                     android:text="¿Cuál es la bandera de Serbia?"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
+                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/label_question5" />
+
+                <TextView
+                    android:id="@+id/textSol5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2131558422"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -399,6 +410,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question6" />
 
                 <TextView
+                    android:id="@+id/textSol6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -465,7 +477,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question7" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/textSol7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -546,6 +558,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question8" />
 
                 <TextView
+                    android:id="@+id/textSol8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -612,6 +625,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question9" />
 
                 <TextView
+                    android:id="@+id/textSol9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -678,6 +692,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question10" />
 
                 <TextView
+                    android:id="@+id/textSol10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -744,6 +759,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question11" />
 
                 <TextView
+                    android:id="@+id/textSol11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -810,6 +826,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question12" />
 
                 <TextView
+                    android:id="@+id/textSol12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -876,6 +893,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question13" />
 
                 <TextView
+                    android:id="@+id/textSol13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -942,6 +960,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question14" />
 
                 <TextView
+                    android:id="@+id/textSol14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -1008,13 +1027,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question15" />
 
                 <TextView
+                    android:id="@+id/textSol15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="San Petesburgo"
+                    android:text="San Petersburgo"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toTopOf="@+id/separator15"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1074,6 +1094,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question16" />
 
                 <TextView
+                    android:id="@+id/textSol16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -1140,6 +1161,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question17" />
 
                 <TextView
+                    android:id="@+id/textSol17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -1206,6 +1228,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question18" />
 
                 <TextView
+                    android:id="@+id/textSol18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -1272,6 +1295,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question19" />
 
                 <TextView
+                    android:id="@+id/textSol19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -1338,6 +1362,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question20" />
 
                 <TextView
+                    android:id="@+id/textSol20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"

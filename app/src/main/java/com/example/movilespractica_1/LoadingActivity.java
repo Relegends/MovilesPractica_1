@@ -23,7 +23,7 @@ public class LoadingActivity extends AppCompatActivity {
         mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
 
         try {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(1);
             GameLogic.GAME.changeActivity(this);
         } catch (InterruptedException e) {
             e.printStackTrace();

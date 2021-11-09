@@ -24,13 +24,21 @@ public class UserWarning extends AppCompatDialogFragment {
                 .setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        sendAnswer.sendAnswerToActivity(true);
+                        try {
+                            sendAnswer.sendAnswerToActivity(true);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .setNegativeButton("Añadir usuario", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        sendAnswer.sendAnswerToActivity(false);
+                        try {
+                            sendAnswer.sendAnswerToActivity(false);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
         return dialogBuilder.create();
@@ -47,6 +55,6 @@ public class UserWarning extends AppCompatDialogFragment {
     }
 
     public interface userWarningDialogInterface {
-        void sendAnswerToActivity(boolean answer);
+        void sendAnswerToActivity(boolean answer) throws InterruptedException;
     }
 }

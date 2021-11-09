@@ -39,7 +39,7 @@ public class GameLogic implements FragmentCommunication {
 
     private List<Integer> generateRandomQuestions() {
         List<Integer> numbers = new ArrayList<>();
-        for (int i = 0; i < numMaxQuestions; i++)
+        for (int i = 0; i < 20; i++)
             numbers.add(i);
         Collections.shuffle(numbers);
         return numbers;

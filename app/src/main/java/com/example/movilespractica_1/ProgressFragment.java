@@ -320,6 +320,8 @@ public class ProgressFragment extends Fragment {
                 disableVisibilityLayouts();
 
                 audioId = aq.getAnthemId();
+                audioPlainText.setText("");
+
 
                 audioLayout.setVisibility(View.VISIBLE);
                 break;
@@ -391,35 +393,10 @@ public class ProgressFragment extends Fragment {
                 }
                 break;
             case FLAGS:
-                FlagsQuestion fq = (FlagsQuestion) q;
-
-                switch (flagId) {
-                    case 1:
-                        if (flag1.getResources().equals(fq.getSolution())) {
-                            GameLogic.GAME.addPoints(q.getQuestionType());
-                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
-                        }
-                        break;
-                    case 2:
-                        if (flag2.getResources().equals(fq.getSolution())) {
-                            GameLogic.GAME.addPoints(q.getQuestionType());
-                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
-                        }
-                        break;
-                    case 3:
-                        if (flag3.getResources().equals(fq.getSolution())) {
-                            GameLogic.GAME.addPoints(q.getQuestionType());
-                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
-                        }
-                        break;
-                    case 4:
-                        if (flag4.getResources().equals(fq.getSolution())) {
-                            GameLogic.GAME.addPoints(q.getQuestionType());
-                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
-                        }
-                        break;
+                if (flagId == 4) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
                 }
-
                 break;
             case VIDEO:
                 VideoQuestion vq = (VideoQuestion) q;
