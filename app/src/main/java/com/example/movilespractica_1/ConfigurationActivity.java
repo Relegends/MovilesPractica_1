@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ConfigurationActivity extends AppCompatActivity {
@@ -16,7 +15,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     private RadioButton radioButton;
     private RadioGroup radioGroup;
     private EditText userName;
-    private TextView userDisplay;
 
     private ConfigurationViewModel configurationViewModel;
 
@@ -30,9 +28,6 @@ public class ConfigurationActivity extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupNumQ);
 
         userName = (EditText) findViewById(R.id.userNameText);
-        userDisplay = (TextView) findViewById(R.id.userDisplay);
-        //userDisplay.setText("Nuevo nombre de usuario");
-        userDisplay.setText(configurationViewModel.getConfiguration().getUserName());
     }
 
     public void saveConfiguration(View view) {
@@ -48,7 +43,6 @@ public class ConfigurationActivity extends AppCompatActivity {
             configurationViewModel.insertConfiguration(configuration);
 
             Toast.makeText(this, "Ajustes guardados", Toast.LENGTH_SHORT).show();
-            userDisplay.setText(userName.getText().toString());
 
         } else {
             Toast.makeText(this, "Rellene toda la configuración", Toast.LENGTH_SHORT).show();
