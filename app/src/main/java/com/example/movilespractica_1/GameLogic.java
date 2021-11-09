@@ -2,6 +2,9 @@ package com.example.movilespractica_1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import android.widget.ArrayAdapter;
 
 import androidx.fragment.app.Fragment;
 
@@ -177,5 +180,25 @@ public class GameLogic implements FragmentCommunication {
 
     public int[] getIndexQuestionDB() {
         return indexQuestionDB;
+    }
+
+    public void addPoints(QuestionType questionType) {
+        switch (questionType) {
+            case RADIOBUTTON:
+            case SPINNER:
+            case CHECKBOX:
+                points += 10;
+                break;
+            case PICTURE:
+            case FLAGS:
+                points += 25;
+                break;
+            case VIDEO:
+                points += 50;
+                break;
+            case ANTHEM:
+                points += 100;
+                break;
+        }
     }
 }

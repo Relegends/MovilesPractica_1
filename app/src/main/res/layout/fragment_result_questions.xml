@@ -219,7 +219,7 @@
             android:id="@+id/correctAnswersText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="112dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Correct Asnwers = "
             app:layout_constraintStart_toStartOf="parent"
@@ -232,6 +232,26 @@
             android:layout_marginTop="16dp"
             android:text="TextView"
             app:layout_constraintStart_toEndOf="@+id/correctAnswersText"
+            app:layout_constraintTop_toBottomOf="@+id/row3" />
+
+        <TextView
+            android:id="@+id/pointsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="Points = "
+            app:layout_constraintStart_toEndOf="@+id/correctAnswersNumber"
+            app:layout_constraintTop_toBottomOf="@+id/row3" />
+
+        <TextView
+            android:id="@+id/pointsTextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/pointsText"
             app:layout_constraintTop_toBottomOf="@+id/row3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

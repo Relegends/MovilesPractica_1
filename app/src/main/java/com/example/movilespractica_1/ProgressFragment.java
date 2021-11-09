@@ -331,60 +331,84 @@ public class ProgressFragment extends Fragment {
             case RADIOBUTTON:
                 RadioButtonQuestion rb = (RadioButtonQuestion) q;
                 if (radioButton1.isChecked()) {
-                    if (radioButton1.getText().equals(rb.getSolution()))
+                    if (radioButton1.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 } else if (radioButton2.isChecked()) {
-                    if (radioButton2.getText().equals(rb.getSolution()))
+                    if (radioButton2.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 } else if (radioButton3.isChecked()) {
-                    if (radioButton4.getText().equals(rb.getSolution()))
+                    if (radioButton4.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 } else if (radioButton4.isChecked()) {
-                    if (radioButton4.getText().equals(rb.getSolution()))
+                    if (radioButton4.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 }
                 break;
             case CHECKBOX:
-                if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && !checkBoxInCorrect2.isChecked() && !checkBoxIncorrect1.isChecked())
+                if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && !checkBoxInCorrect2.isChecked() && !checkBoxIncorrect1.isChecked()) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case SPINNER:
                 SpinnerQuestion sq = (SpinnerQuestion) q;
-                if (spinner.getSelectedItem().toString().equals(sq.getSolution()))
+                if (spinner.getSelectedItem().toString().equals(sq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case PICTURE:
                 PictureQuestion pq = (PictureQuestion) q;
-                if (countryPlainText.getText().toString().equals(pq.getSolution()))
+                if (countryPlainText.getText().toString().equals(pq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case FLAGS:
                 FlagsQuestion fq = (FlagsQuestion) q;
 
                 switch (flagId) {
                     case 1:
-                        if (flag1.getResources().equals(fq.getSolution()))
+                        if (flag1.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                     case 2:
-                        if (flag2.getResources().equals(fq.getSolution()))
+                        if (flag2.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                     case 3:
-                        if (flag3.getResources().equals(fq.getSolution()))
+                        if (flag3.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                     case 4:
-                        if (flag4.getResources().equals(fq.getSolution()))
+                        if (flag4.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                 }
 
                 break;
             case VIDEO:
                 VideoQuestion vq = (VideoQuestion) q;
-                if (videoPlainText.getText().toString().equals(vq.getSolution()))
+                if (videoPlainText.getText().toString().equals(vq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case ANTHEM:
                 AnthemQuestion aq = (AnthemQuestion) q;
