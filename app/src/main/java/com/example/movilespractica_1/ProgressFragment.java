@@ -60,6 +60,7 @@ public class ProgressFragment extends Fragment {
     Button pauseButton;
     Button stopButton;
     int audioId;
+    EditText audioPlainText;
 
     // RadioButtonQuestion
     RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
@@ -147,6 +148,7 @@ public class ProgressFragment extends Fragment {
         playButton = (Button) progressFragmentView.findViewById(R.id.playMusicButton);
         pauseButton = (Button) progressFragmentView.findViewById(R.id.pauseMusicButton);
         stopButton = (Button) progressFragmentView.findViewById(R.id.stopMusicButton);
+        audioPlainText = (EditText) progressFragmentView.findViewById(R.id.answerAudio);
 
         loadNextQuestion();
         nextQuestion();
@@ -155,6 +157,12 @@ public class ProgressFragment extends Fragment {
         setMediaPlayer();
 
         return progressFragmentView;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        GameLogic.GAME.addPoints(progressBar.getProgress());
     }
 
     public void nextQuestion() {
@@ -412,7 +420,10 @@ public class ProgressFragment extends Fragment {
                 break;
             case ANTHEM:
                 AnthemQuestion aq = (AnthemQuestion) q;
-
+                if (audioPlainText.getText().toString().equals(aq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
         }
         ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();

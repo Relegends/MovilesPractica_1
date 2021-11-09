@@ -201,4 +201,9 @@ public class GameLogic implements FragmentCommunication {
                 break;
         }
     }
+
+    public void addPoints(int progress) {
+        int multiplier = 100 - progress;
+        points *= multiplier;
+    }
 }
