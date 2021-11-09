@@ -32,6 +32,10 @@ public class GameLogic implements FragmentCommunication {
 
     private Activity shownActivity;
 
+    private ArrayList<Question> questionsInGame;
+
+    private String chronoText;
+
 
     private List<Integer> generateRandomQuestions() {
         List<Integer> numbers = new ArrayList<>();
@@ -106,6 +110,13 @@ public class GameLogic implements FragmentCommunication {
         Intent intent;
 
         switch (shownActivity.getLocalClassName()) {
+            case "LoadingActivity":
+                intent = new Intent(shownActivity, MainActivity.class);
+                GameLogic.GAME.resetGameLogic();
+                shownActivity.startActivity(intent);
+                resetAnswers();
+                shownActivity.finish();
+                break;
             case "MainActivity":
                 intent = new Intent(shownActivity, GameActivity.class);
                 GameLogic.GAME.resetGameLogic();
@@ -176,6 +187,8 @@ public class GameLogic implements FragmentCommunication {
         resetIndexQuestionDB();
         resetPoints();
         resetAnswers();
+        resetQuestionsInGame();
+        resetChronoText();
     }
 
     public int[] getIndexQuestionDB() {
@@ -205,5 +218,30 @@ public class GameLogic implements FragmentCommunication {
     public void addPoints(int progress) {
         int multiplier = 100 - progress;
         points *= multiplier;
+    }
+
+    public void resetQuestionsInGame() {
+        questionsInGame = new ArrayList<>();
+    }
+
+    public void addQuestionInGame(Question q) {
+        questionsInGame.add(q);
+    }
+
+    public ArrayList<Question> getQuestionsInGame() {
+        questionsInGame.remove(questionsInGame.size()-1);
+        return questionsInGame;
+    }
+
+    public void setChronoText(String chronoText) {
+        this.chronoText = chronoText;
+    }
+
+    public String getChronoText() {
+        return chronoText;
+    }
+
+    public void resetChronoText() {
+        chronoText = "";
     }
 }

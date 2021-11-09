@@ -801,7 +801,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:text="Cómo se llama la ciudad capital que aparece en el vídeo?"
+                    android:text="¿Cómo se llama la ciudad capital que aparece en el vídeo?"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1065,7 +1065,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:text="¿¿Qué país quedó fusionado con Alemania tras el Anschluss?"
+                    android:text="¿Qué país quedó fusionado con Alemania tras el Anschluss?"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1372,19 +1372,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="345dp"
-            android:layout_marginBottom="16dp"
-            android:src="@mipmap/serbia_foreground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/seeScoresButton"

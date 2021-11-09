@@ -72,7 +72,7 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de España?", "Madrid",
                         "Madrid", "Barcelona", "Málaga", "Burgos"));
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál de estos países es el más grande?", "Alemania",
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál de estos países es más grande?", "Alemania",
                         "Alemania", "Siria", "Dinamarca", "Grecia"));
 
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿En qué continente está Ruanda?", "África",

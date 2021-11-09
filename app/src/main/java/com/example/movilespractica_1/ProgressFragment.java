@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.MediaController;
@@ -44,6 +45,8 @@ public class ProgressFragment extends Fragment {
     Button nextQuestionButton;
 
     TextView questionNumber, questionText;
+
+    Chronometer chronometer;
 
     // Video
     ConstraintLayout videoLayout;
@@ -97,6 +100,8 @@ public class ProgressFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View progressFragmentView = inflater.inflate(R.layout.fragment_progress, container, false);
+
+        chronometer = (Chronometer) progressFragmentView.findViewById(R.id.simpleChronometer);
 
         questionNumber = (TextView) progressFragmentView.findViewById(R.id.numberQuestion);
         questionText = (TextView) progressFragmentView.findViewById(R.id.text_question);
@@ -230,8 +235,13 @@ public class ProgressFragment extends Fragment {
 
     private void loadNextQuestion() {
         int indexQuestion = GameLogic.GAME.getIndexShownQuestion() + 1;
+        if (indexQuestion == 1) {
+            GameLogic.GAME.setChronoText(chronometer.getText().toString());
+        }
+
         questionNumber.setText("Question " + indexQuestion);
         Question q = mAllQuestions.get(GameLogic.GAME.getNextQuestionDB());
+        GameLogic.GAME.addQuestionInGame(q);
         questionText.setText(q.getQuestionText());
 
         switch (q.getQuestionType()) {
@@ -431,6 +441,7 @@ public class ProgressFragment extends Fragment {
 
     private void countDownEvent() {
         progressBar.setProgress(progress);
+        chronometer.start();
         countDownTimer = new CountDownTimer(maxTime, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
