@@ -2,6 +2,9 @@ package com.example.movilespractica_1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import android.widget.ArrayAdapter;
 
 import androidx.fragment.app.Fragment;
 
@@ -28,6 +31,10 @@ public class GameLogic implements FragmentCommunication {
     private boolean answers[];
 
     private Activity shownActivity;
+
+    private ArrayList<Question> questionsInGame;
+
+    private String chronoText;
 
 
     private List<Integer> generateRandomQuestions() {
@@ -103,6 +110,13 @@ public class GameLogic implements FragmentCommunication {
         Intent intent;
 
         switch (shownActivity.getLocalClassName()) {
+            case "LoadingActivity":
+                intent = new Intent(shownActivity, MainActivity.class);
+                GameLogic.GAME.resetGameLogic();
+                shownActivity.startActivity(intent);
+                resetAnswers();
+                shownActivity.finish();
+                break;
             case "MainActivity":
                 intent = new Intent(shownActivity, GameActivity.class);
                 GameLogic.GAME.resetGameLogic();
@@ -173,9 +187,61 @@ public class GameLogic implements FragmentCommunication {
         resetIndexQuestionDB();
         resetPoints();
         resetAnswers();
+        resetQuestionsInGame();
+        resetChronoText();
     }
 
     public int[] getIndexQuestionDB() {
         return indexQuestionDB;
+    }
+
+    public void addPoints(QuestionType questionType) {
+        switch (questionType) {
+            case RADIOBUTTON:
+            case SPINNER:
+            case CHECKBOX:
+                points += 10;
+                break;
+            case PICTURE:
+            case FLAGS:
+                points += 25;
+                break;
+            case VIDEO:
+                points += 50;
+                break;
+            case ANTHEM:
+                points += 100;
+                break;
+        }
+    }
+
+    public void addPoints(int progress) {
+        int multiplier = 100 - progress;
+        points *= multiplier;
+    }
+
+    public void resetQuestionsInGame() {
+        questionsInGame = new ArrayList<>();
+    }
+
+    public void addQuestionInGame(Question q) {
+        questionsInGame.add(q);
+    }
+
+    public ArrayList<Question> getQuestionsInGame() {
+        questionsInGame.remove(questionsInGame.size()-1);
+        return questionsInGame;
+    }
+
+    public void setChronoText(String chronoText) {
+        this.chronoText = chronoText;
+    }
+
+    public String getChronoText() {
+        return chronoText;
+    }
+
+    public void resetChronoText() {
+        chronoText = "";
     }
 }

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.MediaController;
@@ -45,6 +46,8 @@ public class ProgressFragment extends Fragment {
 
     TextView questionNumber, questionText;
 
+    Chronometer chronometer;
+
     // Video
     ConstraintLayout videoLayout;
     MediaController mediaController;
@@ -60,6 +63,7 @@ public class ProgressFragment extends Fragment {
     Button pauseButton;
     Button stopButton;
     int audioId;
+    EditText audioPlainText;
 
     // RadioButtonQuestion
     RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
@@ -96,6 +100,8 @@ public class ProgressFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View progressFragmentView = inflater.inflate(R.layout.fragment_progress, container, false);
+
+        chronometer = (Chronometer) progressFragmentView.findViewById(R.id.simpleChronometer);
 
         questionNumber = (TextView) progressFragmentView.findViewById(R.id.numberQuestion);
         questionText = (TextView) progressFragmentView.findViewById(R.id.text_question);
@@ -147,6 +153,7 @@ public class ProgressFragment extends Fragment {
         playButton = (Button) progressFragmentView.findViewById(R.id.playMusicButton);
         pauseButton = (Button) progressFragmentView.findViewById(R.id.pauseMusicButton);
         stopButton = (Button) progressFragmentView.findViewById(R.id.stopMusicButton);
+        audioPlainText = (EditText) progressFragmentView.findViewById(R.id.answerAudio);
 
         loadNextQuestion();
         nextQuestion();
@@ -155,6 +162,12 @@ public class ProgressFragment extends Fragment {
         setMediaPlayer();
 
         return progressFragmentView;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        GameLogic.GAME.addPoints(progressBar.getProgress());
     }
 
     public void nextQuestion() {
@@ -222,8 +235,13 @@ public class ProgressFragment extends Fragment {
 
     private void loadNextQuestion() {
         int indexQuestion = GameLogic.GAME.getIndexShownQuestion() + 1;
+        if (indexQuestion == 1) {
+            GameLogic.GAME.setChronoText(chronometer.getText().toString());
+        }
+
         questionNumber.setText("Question " + indexQuestion);
         Question q = mAllQuestions.get(GameLogic.GAME.getNextQuestionDB());
+        GameLogic.GAME.addQuestionInGame(q);
         questionText.setText(q.getQuestionText());
 
         switch (q.getQuestionType()) {
@@ -331,64 +349,91 @@ public class ProgressFragment extends Fragment {
             case RADIOBUTTON:
                 RadioButtonQuestion rb = (RadioButtonQuestion) q;
                 if (radioButton1.isChecked()) {
-                    if (radioButton1.getText().equals(rb.getSolution()))
+                    if (radioButton1.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 } else if (radioButton2.isChecked()) {
-                    if (radioButton2.getText().equals(rb.getSolution()))
+                    if (radioButton2.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 } else if (radioButton3.isChecked()) {
-                    if (radioButton4.getText().equals(rb.getSolution()))
+                    if (radioButton4.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 } else if (radioButton4.isChecked()) {
-                    if (radioButton4.getText().equals(rb.getSolution()))
+                    if (radioButton4.getText().equals(rb.getSolution())) {
+                        GameLogic.GAME.addPoints(q.getQuestionType());
                         GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                    }
                 }
                 break;
             case CHECKBOX:
-                if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && !checkBoxInCorrect2.isChecked() && !checkBoxIncorrect1.isChecked())
+                if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && !checkBoxInCorrect2.isChecked() && !checkBoxIncorrect1.isChecked()) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case SPINNER:
                 SpinnerQuestion sq = (SpinnerQuestion) q;
-                if (spinner.getSelectedItem().toString().equals(sq.getSolution()))
+                if (spinner.getSelectedItem().toString().equals(sq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case PICTURE:
                 PictureQuestion pq = (PictureQuestion) q;
-                if (countryPlainText.getText().toString().equals(pq.getSolution()))
+                if (countryPlainText.getText().toString().equals(pq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case FLAGS:
                 FlagsQuestion fq = (FlagsQuestion) q;
 
                 switch (flagId) {
                     case 1:
-                        if (flag1.getResources().equals(fq.getSolution()))
+                        if (flag1.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                     case 2:
-                        if (flag2.getResources().equals(fq.getSolution()))
+                        if (flag2.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                     case 3:
-                        if (flag3.getResources().equals(fq.getSolution()))
+                        if (flag3.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                     case 4:
-                        if (flag4.getResources().equals(fq.getSolution()))
+                        if (flag4.getResources().equals(fq.getSolution())) {
+                            GameLogic.GAME.addPoints(q.getQuestionType());
                             GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        }
                         break;
                 }
 
                 break;
             case VIDEO:
                 VideoQuestion vq = (VideoQuestion) q;
-                if (videoPlainText.getText().toString().equals(vq.getSolution()))
+                if (videoPlainText.getText().toString().equals(vq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
                     GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case ANTHEM:
                 AnthemQuestion aq = (AnthemQuestion) q;
-
+                if (audioPlainText.getText().toString().equals(aq.getSolution())) {
+                    GameLogic.GAME.addPoints(q.getQuestionType());
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
         }
         ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();
@@ -396,6 +441,7 @@ public class ProgressFragment extends Fragment {
 
     private void countDownEvent() {
         progressBar.setProgress(progress);
+        chronometer.start();
         countDownTimer = new CountDownTimer(maxTime, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
