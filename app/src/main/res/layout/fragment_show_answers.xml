@@ -89,7 +89,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="351dp"
                     android:layout_marginBottom="16dp"
-                    android:text="España, Italia y Alemania"
+                    android:text="Portugal y Bélgica"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toTopOf="@+id/separator2"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -152,7 +152,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="351dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Polonia"
+                    android:text="Alemania"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toTopOf="@+id/separator3"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -195,7 +195,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="125dp"
-                    android:text="¿Qué país es este? "
+                    android:text="¿Cuál de estos países es el más grande?"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -215,7 +215,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="351dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Ciudad del Vaticano"
+                    android:text="África"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toTopOf="@+id/separator4"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -258,7 +258,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="125dp"
-                    android:text="Seleccione el país más pequeño del mundo:"
+                    android:text="¿En qué continente está Ruanda?"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -328,6 +328,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_question5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
 

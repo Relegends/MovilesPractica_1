@@ -174,4 +174,8 @@ public class GameLogic implements FragmentCommunication {
         resetPoints();
         resetAnswers();
     }
+
+    public int[] getIndexQuestionDB() {
+        return indexQuestionDB;
+    }
 }
