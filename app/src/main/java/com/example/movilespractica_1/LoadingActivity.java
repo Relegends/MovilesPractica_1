@@ -21,12 +21,12 @@ public class LoadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loading);
         configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
         mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
-        mAllQuestions = mQuestionViewModel.getAllQuestions();
 
         try {
             TimeUnit.SECONDS.sleep(3);
             Intent intent = new Intent(this, MainActivity.class);
             this.startActivity(intent);
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -14,27 +14,21 @@ public class GameLogic implements FragmentCommunication {
 
     public static GameLogic GAME = new GameLogic();
 
-    private int numMaxQuestions = 5;
+    private int numMaxQuestions;
 
     private String userName;
 
     private int points;
 
-    private int indexShownQuestion = 1;
+    private int indexShownQuestion = 0;
     private int indexQuestionDB[];
 
     private int correctAnswers;
 
-    private boolean answers[] = new boolean[5];
+    private boolean answers[];
 
     private Activity shownActivity;
 
-    GameLogic() {
-
-        resetIndexQuestionDB();
-
-        points = 0;
-    }
 
     private List<Integer> generateRandomQuestions() {
         List<Integer> numbers = new ArrayList<>();
@@ -66,7 +60,7 @@ public class GameLogic implements FragmentCommunication {
     @Override
     public void nextQuestion() {
         indexShownQuestion++;
-        if (indexShownQuestion > numMaxQuestions) {
+        if (indexShownQuestion >= numMaxQuestions) {
             changeActivity(shownActivity);
         }
     }
@@ -111,6 +105,10 @@ public class GameLogic implements FragmentCommunication {
         switch (shownActivity.getLocalClassName()) {
             case "MainActivity":
                 intent = new Intent(shownActivity, GameActivity.class);
+                GameLogic.GAME.resetAnswers();
+                GameLogic.GAME.resetIndexQuestionDB();
+                GameLogic.GAME.resetPoints();
+                GameLogic.GAME.resetIndexQuestion();
                 shownActivity.startActivity(intent);
                 resetAnswers();
                 break;
@@ -125,7 +123,12 @@ public class GameLogic implements FragmentCommunication {
                 shownActivity.finish();
                 break;
             case "ClassificationActivity":
+            case "ConfigurationActivity":
                 intent = new Intent(shownActivity, GameActivity.class);
+                GameLogic.GAME.resetAnswers();
+                GameLogic.GAME.resetIndexQuestionDB();
+                GameLogic.GAME.resetPoints();
+                GameLogic.GAME.resetIndexQuestion();
                 shownActivity.startActivity(intent);
                 shownActivity.finish();
                 break;
@@ -145,6 +148,7 @@ public class GameLogic implements FragmentCommunication {
     }
 
     public void resetAnswers() {
+        answers = new boolean[getNumMaxQuestions()];
         Arrays.fill(answers, false);
     }
 
