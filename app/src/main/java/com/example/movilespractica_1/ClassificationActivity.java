@@ -34,9 +34,7 @@ public class ClassificationActivity extends AppCompatActivity {
     }
 
     public void replay(View view) {
-        GameLogic.GAME.resetIndexQuestion();
-        GameLogic.GAME.resetAnswers();
-        GameLogic.GAME.resetPoints();
+        GameLogic.GAME.resetGameLogic();
         GameLogic.GAME.changeActivity(this);
     }
 }

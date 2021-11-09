@@ -16,13 +16,17 @@ public class Score {
     private String userName;
 
     @NonNull
+    private String chronoText;
+
+    @NonNull
     @ColumnInfo(name = "points")
     private int points;
 
-    public Score(@NonNull String userName, @NonNull int points) {
+    public Score(@NonNull String userName, @NonNull int points, @NonNull String chronoText) {
         id = (int) (Math.random() * 10000);
         this.userName = userName;
         this.points = points;
+        this.chronoText = chronoText;
     }
 
     public int getId() {
@@ -48,5 +52,14 @@ public class Score {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    @NonNull
+    public String getChronoText() {
+        return chronoText;
+    }
+
+    public void setChronoText(@NonNull String chronoText) {
+        this.chronoText = chronoText;
     }
 }

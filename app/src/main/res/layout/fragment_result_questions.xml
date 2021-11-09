@@ -14,12 +14,13 @@
             android:id="@+id/row1"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
 
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -83,11 +84,12 @@
             android:id="@+id/row2"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/row1">
 
@@ -151,11 +153,12 @@
             android:id="@+id/row3"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/row2">
 
@@ -219,20 +222,44 @@
             android:id="@+id/correctAnswersText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
             android:text="Correct Asnwers = "
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/row3" />
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/row1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/correctAnswersNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/correctAnswersText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pointsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="16dp"
+            android:text="Points = "
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correctAnswersText" />
+
+        <TextView
+            android:id="@+id/pointsTextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/correctAnswersText"
-            app:layout_constraintTop_toBottomOf="@+id/row3" />
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/pointsText"
+            app:layout_constraintTop_toBottomOf="@+id/correctAnswersText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

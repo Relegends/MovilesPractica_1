@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.concurrent.TimeUnit;
+
 public class MainActivity extends AppCompatActivity implements UserWarning.userWarningDialogInterface {
 
     private ConfigurationViewModel configurationViewModel;
@@ -19,12 +21,13 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
         GameLogic.GAME.setShownActivity(this);
     }
 
-    public void play(View view) {
+    public void play(View view) throws InterruptedException {
 
         configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
         Configuration configuration = configurationViewModel.getConfiguration();
 
         if (!configuration.getUserName().equals("Anónimo")) {
+            TimeUnit.SECONDS.sleep(1);
             GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
             GameLogic.GAME.setUserName(configuration.getUserName());
             GameLogic.GAME.resetGameLogic();
@@ -40,12 +43,13 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
     }
 
     @Override
-    public void sendAnswerToActivity(boolean answer) {
+    public void sendAnswerToActivity(boolean answer) throws InterruptedException {
 
         configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
         Configuration configuration = configurationViewModel.getConfiguration();
 
         if (answer) {
+            TimeUnit.SECONDS.sleep(1);
             GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
             GameLogic.GAME.setUserName(configuration.getUserName());
             GameLogic.GAME.resetGameLogic();

@@ -25,6 +25,8 @@ public class ResultQuestionsFragment extends Fragment {
 
     TextView correctAnswersText;
 
+    TextView pointsText;
+
     LinearLayout row1, row2, row3;
 
     @Override
@@ -74,8 +76,12 @@ public class ResultQuestionsFragment extends Fragment {
         correctAnswersText = resultQuestionsFragmentView.findViewById(R.id.correctAnswersNumber);
         correctAnswersText.setText("0");
 
+        pointsText = resultQuestionsFragmentView.findViewById(R.id.pointsTextValue);
+        pointsText.setText("0");
+
         if (Objects.equals(getActivity().getLocalClassName(), "ResultsActivity")) {
             correctAnswersText.setText(String.valueOf(GameLogic.GAME.getCorrectAnswers()));
+            pointsText.setText(String.valueOf(GameLogic.GAME.getPoints()));
             answerQuestions(GameLogic.GAME.getAnswers());
         }
 
@@ -91,6 +97,7 @@ public class ResultQuestionsFragment extends Fragment {
         if (isCorrect) {
             questions[indexQuestion].setBackgroundColor(Color.GREEN);
             correctAnswersText.setText(String.valueOf(correctAnswers));
+            pointsText.setText(String.valueOf(GameLogic.GAME.getPoints()));
             Toast.makeText(getActivity(), "CORRECT!", Toast.LENGTH_SHORT).show();
         } else {
             questions[indexQuestion].setBackgroundColor(Color.RED);

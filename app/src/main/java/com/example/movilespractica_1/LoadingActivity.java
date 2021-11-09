@@ -23,10 +23,8 @@ public class LoadingActivity extends AppCompatActivity {
         mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
 
         try {
-            TimeUnit.SECONDS.sleep(3);
-            Intent intent = new Intent(this, MainActivity.class);
-            this.startActivity(intent);
-
+            TimeUnit.SECONDS.sleep(1);
+            GameLogic.GAME.changeActivity(this);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

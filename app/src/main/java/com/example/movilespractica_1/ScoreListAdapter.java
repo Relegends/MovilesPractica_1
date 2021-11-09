@@ -20,7 +20,7 @@ public class ScoreListAdapter extends ListAdapter<Score, ScoreViewHolder> {
     @Override
     public void onBindViewHolder(ScoreViewHolder holder, int position) {
         Score current = getItem(position);
-        holder.bind(current.getUserName() + " " + current.getPoints());
+        holder.bind("User: " + current.getUserName() + "\t" + " Points: " + current.getPoints() + "\n" + " Time: " + current.getChronoText());
     }
 
     static class ScoreDiff extends DiffUtil.ItemCallback<Score> {
