@@ -19,11 +19,11 @@ public class LoadingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
-        configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
-        mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
 
         try {
             TimeUnit.SECONDS.sleep(1);
+            configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
+            mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
             GameLogic.GAME.changeActivity(this);
         } catch (InterruptedException e) {
             e.printStackTrace();
