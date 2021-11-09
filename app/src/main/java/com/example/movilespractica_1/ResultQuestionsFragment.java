@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class ResultQuestionsFragment extends Fragment {
 
-    TextView questions[] = new TextView[5];
+    TextView questions[] = new TextView[GameLogic.GAME.getNumMaxQuestions()];
 
     TextView correctAnswersText;
 
@@ -41,6 +41,23 @@ public class ResultQuestionsFragment extends Fragment {
         questions[2] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);
         questions[3] = resultQuestionsFragmentView.findViewById(R.id.questionMenu4);
         questions[4] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
+
+        if (GameLogic.GAME.getNumMaxQuestions() > 5) {
+            questions[5] = resultQuestionsFragmentView.findViewById(R.id.questionMenu1);
+            questions[6] = resultQuestionsFragmentView.findViewById(R.id.questionMenu2);
+            questions[7] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);
+            questions[8] = resultQuestionsFragmentView.findViewById(R.id.questionMenu4);
+            questions[9] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
+        }
+
+        if (GameLogic.GAME.getNumMaxQuestions() > 10) {
+            questions[10] = resultQuestionsFragmentView.findViewById(R.id.questionMenu1);
+            questions[11] = resultQuestionsFragmentView.findViewById(R.id.questionMenu2);
+            questions[12] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);
+            questions[13] = resultQuestionsFragmentView.findViewById(R.id.questionMenu4);
+            questions[14] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
+        }
+
 
         correctAnswersText = resultQuestionsFragmentView.findViewById(R.id.correctAnswersNumber);
         correctAnswersText.setText("0");

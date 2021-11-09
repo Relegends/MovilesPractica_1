@@ -165,4 +165,8 @@ public class GameLogic implements FragmentCommunication {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public int getNumMaxQuestions() {
+        return numMaxQuestions;
+    }
 }

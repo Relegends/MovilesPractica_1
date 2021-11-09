@@ -300,6 +300,7 @@ public class ProgressFragment extends Fragment {
                 audioLayout.setVisibility(View.VISIBLE);
                 break;
         }
+        ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();
     }
 
     private void disableVisibilityLayouts() {
