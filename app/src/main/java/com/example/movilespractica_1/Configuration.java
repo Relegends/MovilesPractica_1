@@ -14,13 +14,9 @@ public class Configuration {
     @NonNull
     private String userName;
 
-    @NonNull
-    private String gameMode;
-
     public Configuration() {
         numQuestionsSelected = 5;
         userName = "Anónimo";
-        gameMode = "All Types";
     }
 
     public int getNumQuestionsSelected() {
