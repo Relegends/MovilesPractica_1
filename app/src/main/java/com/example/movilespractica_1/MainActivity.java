@@ -23,13 +23,14 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
 
     public void play(View view) throws InterruptedException {
 
+        TimeUnit.SECONDS.sleep(2);
         configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
         Configuration configuration = configurationViewModel.getConfiguration();
 
         if (!configuration.getUserName().equals("Anónimo")) {
-            TimeUnit.SECONDS.sleep(1);
             GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
             GameLogic.GAME.setUserName(configuration.getUserName());
+            GameLogic.GAME.setGameMode(configuration.getGameMode());
             GameLogic.GAME.resetGameLogic();
             GameLogic.GAME.changeActivity(this);
         } else {
@@ -44,14 +45,14 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
 
     @Override
     public void sendAnswerToActivity(boolean answer) throws InterruptedException {
-
+        TimeUnit.SECONDS.sleep(2);
         configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
         Configuration configuration = configurationViewModel.getConfiguration();
 
         if (answer) {
-            TimeUnit.SECONDS.sleep(1);
             GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
             GameLogic.GAME.setUserName(configuration.getUserName());
+            GameLogic.GAME.setGameMode(configuration.getGameMode());
             GameLogic.GAME.resetGameLogic();
             GameLogic.GAME.changeActivity(this);
         } else {
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
 
     public void scores(View view) {
         Intent intent = new Intent(this, ClassificationActivity.class);
+        intent.putExtra("caller", "MainActivity");
         this.startActivity(intent);
     }
 }

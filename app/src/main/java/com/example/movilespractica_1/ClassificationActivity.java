@@ -13,12 +13,14 @@ import android.widget.Button;
 public class ClassificationActivity extends AppCompatActivity {
 
     private ScoreViewModel mScoreViewModel;
+    private Button replayButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clasification);
+        GameLogic.GAME.setShownActivity(this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewScores);
         final ScoreListAdapter adapter = new ScoreListAdapter(new ScoreListAdapter.ScoreDiff());
@@ -31,6 +33,14 @@ public class ClassificationActivity extends AppCompatActivity {
             // Update the cached copy of the words in the adapter.
             adapter.submitList(scores);
         });
+        replayButton = findViewById(R.id.replayButton);
+
+        String caller = getIntent().getStringExtra("caller");
+
+        if (caller.equals("MainActivity"))
+            replayButton.setVisibility(View.GONE);
+        else
+            replayButton.setVisibility(View.VISIBLE);
     }
 
     public void replay(View view) {

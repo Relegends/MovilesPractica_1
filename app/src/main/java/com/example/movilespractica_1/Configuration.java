@@ -20,7 +20,7 @@ public class Configuration {
     public Configuration() {
         numQuestionsSelected = 5;
         userName = "Anónimo";
-        gameMode = "All Types";
+        gameMode = "Preguntas de todo tipo";
     }
 
     public int getNumQuestionsSelected() {
@@ -37,5 +37,14 @@ public class Configuration {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    @NonNull
+    public String getGameMode() {
+        return gameMode;
+    }
+
+    public void setGameMode(@NonNull String gameMode) {
+        this.gameMode = gameMode;
     }
 }
