@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Question_Table")
 public class Question {
 
+
     @NonNull
     @ColumnInfo(name = "Question")
     private String questionText;
@@ -18,6 +19,7 @@ public class Question {
 
     @PrimaryKey
     @NonNull
+    @ColumnInfo(name = "Solution")
     private String solution;
 
     public Question(@NonNull String questionText, @NonNull QuestionType questionType, @NonNull String solution) {

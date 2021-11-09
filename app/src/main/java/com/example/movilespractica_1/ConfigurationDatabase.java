@@ -58,5 +58,16 @@ public abstract class ConfigurationDatabase extends RoomDatabase {
 
             });
         }
+
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
+
+            // If you want to keep data through app restarts,
+            // comment out the following block
+            databaseWriteExecutor.execute(() -> {
+
+            });
+        }
     };
 }

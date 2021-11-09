@@ -13,6 +13,7 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProgressFragment extends Fragment {
 
@@ -37,7 +39,7 @@ public class ProgressFragment extends Fragment {
     ProgressBar progressBar;
     CountDownTimer countDownTimer;
     int progress = 0;
-    int maxTime = 60 * 1000;
+    int maxTime = 60 * 1000 * 5;
 
     Button nextQuestionButton;
 
@@ -49,6 +51,7 @@ public class ProgressFragment extends Fragment {
     String videoPath;
     Uri uri;
     VideoView videoView;
+    EditText videoPlainText;
 
     // Audio
     ConstraintLayout audioLayout;
@@ -56,27 +59,29 @@ public class ProgressFragment extends Fragment {
     Button playButton;
     Button pauseButton;
     Button stopButton;
+    int audioId;
 
-    // Question 1
-    RadioButton radioButtonCorrect;
+    // RadioButtonQuestion
+    RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     RadioGroup radioGroup;
     ConstraintLayout radioButtonLayout;
 
-    // Question 2
+    // CheckBoxQuestion
     ConstraintLayout checkBoxesLayout;
-    CheckBox checkBoxIncorrect, checkBoxCorrect1, checkBoxCorrect2, checkBoxCorrect3;
+    CheckBox checkBoxIncorrect1, checkBoxCorrect1, checkBoxCorrect2, checkBoxInCorrect2;
 
-    // Question 3
+    // ImageQuestion
     ConstraintLayout imageLayout;
+    ImageView pictureImage;
     EditText countryPlainText;
 
-    // Question 4
+    // SpinnerQuestion
     ConstraintLayout spinnerLayout;
     Spinner spinner;
 
-    // Question 5
+    // FlagsQuestion
     ConstraintLayout flagLayout;
-    ImageView alemaniaFlag, andaluciaFlag, serbiaFlag, canariasFlag;
+    ImageView flag1, flag2, flag3, flag4;
     boolean isFlag;
 
     @Override
@@ -98,18 +103,22 @@ public class ProgressFragment extends Fragment {
         progressBar = progressFragmentView.findViewById(R.id.progressBar);
         countDownEvent();
 
-        radioButtonCorrect = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonCorrect);
+        radioButton1 = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonP1);
+        radioButton2 = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonP2);
+        radioButton3 = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonP3);
+        radioButton4 = (RadioButton) progressFragmentView.findViewById(R.id.radioButtonP4);
         radioGroup = (RadioGroup) progressFragmentView.findViewById(R.id.radioGroup);
         radioButtonLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.radioButtonsLayout);
 
         checkBoxesLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.checkBoxesLayout);
         checkBoxCorrect1 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox1);
         checkBoxCorrect2 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox2);
-        checkBoxIncorrect = (CheckBox) progressFragmentView.findViewById(R.id.checkBox3);
-        checkBoxCorrect3 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox4);
+        checkBoxIncorrect1 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox3);
+        checkBoxInCorrect2 = (CheckBox) progressFragmentView.findViewById(R.id.checkBox4);
 
         imageLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.plainTextLayout);
         countryPlainText = (EditText) progressFragmentView.findViewById(R.id.editTextCountry);
+        pictureImage = (ImageView) progressFragmentView.findViewById(R.id.pictureImage);
 
         spinnerLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.spinnerLayout);
         spinner = (Spinner) progressFragmentView.findViewById(R.id.spinner);
@@ -118,10 +127,10 @@ public class ProgressFragment extends Fragment {
 
         nextQuestionButton = (Button) progressFragmentView.findViewById(R.id.skipQuestion);
 
-        canariasFlag = (ImageView) progressFragmentView.findViewById(R.id.canariasFlag);
-        alemaniaFlag = (ImageView) progressFragmentView.findViewById(R.id.alemaniaFlag);
-        andaluciaFlag = (ImageView) progressFragmentView.findViewById(R.id.andaluciaFlag);
-        serbiaFlag = (ImageView) progressFragmentView.findViewById(R.id.serbiaFlag);
+        flag1 = (ImageView) progressFragmentView.findViewById(R.id.flag1);
+        flag2 = (ImageView) progressFragmentView.findViewById(R.id.flag2);
+        flag3 = (ImageView) progressFragmentView.findViewById(R.id.flag3);
+        flag4 = (ImageView) progressFragmentView.findViewById(R.id.flag4);
 
         // Video
         videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
@@ -129,6 +138,7 @@ public class ProgressFragment extends Fragment {
         videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidmarianas;
         Uri uri = Uri.parse((videoPath));
         videoView.setVideoURI(uri);
+        videoPlainText = (EditText) progressFragmentView.findViewById(R.id.answer);
 
         mediaController = new MediaController(getContext());
         videoView.setMediaController(mediaController);
@@ -156,7 +166,9 @@ public class ProgressFragment extends Fragment {
                 checkAnswer();
 
                 videoView.stopPlayback();
-                mediaPlayer.stop();
+
+                if (mediaPlayer != null)
+                    mediaPlayer.stop();
 
                 GameLogic.GAME.nextQuestion();
                 loadNextQuestion();
@@ -165,53 +177,54 @@ public class ProgressFragment extends Fragment {
     }
 
     public void clickFlags() {
-        canariasFlag.setOnClickListener(new View.OnClickListener() {
+        flag4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                canariasFlag.setColorFilter(Color.argb(50, 0, 0, 0));
-                alemaniaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                andaluciaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                serbiaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag4.setColorFilter(Color.argb(50, 0, 0, 0));
+                flag1.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag2.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag3.setColorFilter(Color.argb(0, 0, 0, 0));
                 isFlag = false;
             }
         });
 
-        alemaniaFlag.setOnClickListener(new View.OnClickListener() {
+        flag1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                canariasFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                alemaniaFlag.setColorFilter(Color.argb(50, 0, 0, 0));
-                andaluciaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                serbiaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag4.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag1.setColorFilter(Color.argb(50, 0, 0, 0));
+                flag2.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag3.setColorFilter(Color.argb(0, 0, 0, 0));
                 isFlag = false;
             }
         });
 
-        andaluciaFlag.setOnClickListener(new View.OnClickListener() {
+        flag2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                canariasFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                alemaniaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                andaluciaFlag.setColorFilter(Color.argb(50, 0, 0, 0));
-                serbiaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag4.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag1.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag2.setColorFilter(Color.argb(50, 0, 0, 0));
+                flag3.setColorFilter(Color.argb(0, 0, 0, 0));
                 isFlag = false;
             }
         });
 
-        serbiaFlag.setOnClickListener(new View.OnClickListener() {
+        flag3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                canariasFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                alemaniaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                andaluciaFlag.setColorFilter(Color.argb(0, 0, 0, 0));
-                serbiaFlag.setColorFilter(Color.argb(50, 0, 0, 0));
+                flag4.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag1.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag2.setColorFilter(Color.argb(0, 0, 0, 0));
+                flag3.setColorFilter(Color.argb(50, 0, 0, 0));
                 isFlag = true;
             }
         });
     }
 
     private void loadNextQuestion() {
-        questionNumber.setText("Question " + GameLogic.GAME.getIndexShownQuestion());
+        int indexQuestion = GameLogic.GAME.getIndexShownQuestion() + 1;
+        questionNumber.setText("Question " + indexQuestion);
         Question q = mAllQuestions.get(GameLogic.GAME.getNextQuestionDB());
         questionText.setText(q.getQuestionText());
 
@@ -219,24 +232,74 @@ public class ProgressFragment extends Fragment {
             case RADIOBUTTON:
                 RadioButtonQuestion rq = (RadioButtonQuestion) q;
                 disableVisibilityLayouts();
+                radioButton1.setText(rq.getOption1());
+                radioButton2.setText(rq.getOption2());
+                radioButton3.setText(rq.getOption3());
+                radioButton4.setText(rq.getOption4());
                 radioButtonLayout.setVisibility(View.VISIBLE);
                 break;
-            case PICTURE:
+            case CHECKBOX:
+                CheckBoxQuestion cq = (CheckBoxQuestion) q;
                 disableVisibilityLayouts();
-
-                imageLayout.setVisibility(View.VISIBLE);
+                checkBoxCorrect1.setText(cq.getCorrectAnswerText1());
+                checkBoxCorrect2.setText(cq.getCorrectAnswerText2());
+                checkBoxIncorrect1.setText(cq.getWrongAnswerText1());
+                checkBoxInCorrect2.setText(cq.getWrongAnswerText2());
+                checkBoxesLayout.setVisibility(View.VISIBLE);
                 break;
             case SPINNER:
+                SpinnerQuestion sq = (SpinnerQuestion) q;
                 disableVisibilityLayouts();
+
+                ArrayAdapter<String> adapter;
+                List<String> data = new ArrayList<String>();
+                data.add(sq.getOption1());
+                data.add(sq.getOption2());
+                data.add(sq.getOption3());
+                data.add(sq.getOption4());
+                adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, data);
+
+                spinner.setAdapter(adapter);
 
                 spinnerLayout.setVisibility(View.VISIBLE);
                 break;
-            case VIDEO:
+            case PICTURE:
+                PictureQuestion pq = (PictureQuestion) q;
                 disableVisibilityLayouts();
+
+                pictureImage.setImageResource(pq.getPictureId());
+
+                imageLayout.setVisibility(View.VISIBLE);
+                break;
+            case FLAGS:
+                FlagsQuestion fq = (FlagsQuestion) q;
+                disableVisibilityLayouts();
+
+                flag1.setImageResource(fq.getFlagId1());
+                flag2.setImageResource(fq.getFlagId2());
+                flag3.setImageResource(fq.getFlagId3());
+                flag4.setImageResource(fq.getFlagId4());
 
                 flagLayout.setVisibility(View.VISIBLE);
                 break;
+            case VIDEO:
+                VideoQuestion vq = (VideoQuestion) q;
+                disableVisibilityLayouts();
+
+                videoPath = "android.resource://" + getActivity().getPackageName() + "/" + vq.getVideoId();
+
+                videoLayout.setVisibility(View.VISIBLE);
+                break;
+            case ANTHEM:
+                AnthemQuestion aq = (AnthemQuestion) q;
+                disableVisibilityLayouts();
+
+                audioId = aq.getAnthemId();
+
+                audioLayout.setVisibility(View.VISIBLE);
+                break;
         }
+        ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();
     }
 
     private void disableVisibilityLayouts() {
@@ -244,34 +307,49 @@ public class ProgressFragment extends Fragment {
         checkBoxesLayout.setVisibility(View.GONE);
         imageLayout.setVisibility(View.GONE);
         spinnerLayout.setVisibility(View.GONE);
+        flagLayout.setVisibility(View.GONE);
+        videoLayout.setVisibility(View.GONE);
+        audioLayout.setVisibility(View.GONE);
     }
 
     private void checkAnswer() {
-        int indexQuestion = GameLogic.GAME.getIndexShownQuestion();
+        Question q = mAllQuestions.get(GameLogic.GAME.getNextQuestionDB());
+        switch (q.getQuestionType()) {
+            case RADIOBUTTON:
+                RadioButtonQuestion rb = (RadioButtonQuestion) q;
+                //GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                break;
+            case CHECKBOX:
+                if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && !checkBoxInCorrect2.isChecked() && !checkBoxIncorrect1.isChecked())
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                break;
+            case SPINNER:
+                SpinnerQuestion sq = (SpinnerQuestion) q;
+                if (spinner.getSelectedItem().toString().equals(sq.getSolution()))
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                break;
+            case PICTURE:
+                PictureQuestion pq = (PictureQuestion) q;
+                if (countryPlainText.getText().toString().equals(pq.getSolution()))
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                break;
+            case FLAGS:
+                FlagsQuestion fq = (FlagsQuestion) q;
 
-        switch (indexQuestion) {
-            case 0:
-                if (radioButtonCorrect.isChecked())
-                    GameLogic.GAME.setAnswer(true, indexQuestion);
-                break;
-            case 1:
-                if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && checkBoxCorrect3.isChecked() && !checkBoxIncorrect.isChecked())
-                    GameLogic.GAME.setAnswer(true, indexQuestion);
-                break;
-            case 2:
-                if (countryPlainText.getText().toString().equals("Polonia"))
-                    GameLogic.GAME.setAnswer(true, indexQuestion);
-                break;
-            case 3:
-                if (spinner.getSelectedItem().toString().equals("Ciudad del Vaticano"))
-                    GameLogic.GAME.setAnswer(true, indexQuestion);
-                break;
-            case 4:
                 if (isFlag)
-                    GameLogic.GAME.setAnswer(true, indexQuestion);
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+
+                break;
+            case VIDEO:
+                VideoQuestion vq = (VideoQuestion) q;
+                if (videoPlainText.getText().toString().equals(vq.getSolution()))
+                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                break;
+            case ANTHEM:
+                AnthemQuestion aq = (AnthemQuestion) q;
+
                 break;
         }
-        ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();
 
     }
 
@@ -300,7 +378,7 @@ public class ProgressFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (mediaPlayer == null) {
-                    mediaPlayer = MediaPlayer.create(getContext(), R.raw.himnouk);
+                    mediaPlayer = MediaPlayer.create(getContext(), audioId);
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mediaPlayer) {
