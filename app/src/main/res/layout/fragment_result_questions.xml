@@ -8,87 +8,232 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:id="@+id/row1"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginTop="16dp"
+
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/questionMenu1"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="112dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
                 android:background="#939393"
                 android:gravity="center"
-                android:text="1" />
-
-            <TextView
-                android:id="@+id/questionMenu5"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="44dp"
-                android:background="#939393"
-                android:gravity="center"
-                android:text="5" />
+                android:text="1"
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:id="@+id/questionMenu2"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="0dp"
                 android:background="#939393"
                 android:gravity="center"
-                android:text="2" />
+                android:text="2"
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:id="@+id/questionMenu3"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="0dp"
                 android:background="#939393"
                 android:gravity="center"
-                android:text="3" />
+                android:text="3"
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:id="@+id/questionMenu4"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="0dp"
                 android:background="#939393"
                 android:gravity="center"
-                android:text="4" />
+                android:text="4"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu5"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/row2"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row1">
+
+            <TextView
+                android:id="@+id/questionMenu6"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu7"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu8"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu9"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="9"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu10"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row3"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row2">
+
+            <TextView
+                android:id="@+id/questionMenu11"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="11"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu12"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="12"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu13"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="13"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu14"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="14"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/questionMenu15"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:background="#939393"
+                android:gravity="center"
+                android:text="15"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/correctAnswersText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="16dp"
+            android:text="Correct Asnwers = "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row3" />
+
+        <TextView
+            android:id="@+id/correctAnswersNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/correctAnswersText"
+            app:layout_constraintTop_toBottomOf="@+id/row3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/correctAnswersText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="16dp"
-        android:text="Correct Asnwers = "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionMenu3" />
-
-    <TextView
-        android:id="@+id/correctAnswersNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/correctAnswersText"
-        app:layout_constraintTop_toBottomOf="@+id/questionMenu3" />
 
 </FrameLayout>

@@ -7,8 +7,6 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.CountDownTimer;
@@ -29,8 +27,6 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class ProgressFragment extends Fragment {
 
