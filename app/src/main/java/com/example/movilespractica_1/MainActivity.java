@@ -11,14 +11,12 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements UserWarning.userWarningDialogInterface {
 
     private ConfigurationViewModel configurationViewModel;
-    private Button playButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         GameLogic.GAME.setShownActivity(this);
-        playButton = (Button) findViewById(R.id.playButton);
     }
 
     public void play(View view) {

@@ -15,39 +15,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Q1 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="142dp"
                 android:alpha="100">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginEnd="351dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Madrid"
-                    android:textColor="#000000"
-                    app:layout_constraintBottom_toTopOf="@+id/separator1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_question1" />
-
-                <View
-                    android:id="@+id/separator1"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/cardview_shadow_start_color"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Answer1" />
 
                 <TextView
                     android:id="@+id/label_question1"
@@ -76,8 +49,37 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/label_question1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="351dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Madrid"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toTopOf="@+id/separator1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_question1" />
+
+                <View
+                    android:id="@+id/separator1"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/cardview_shadow_start_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Answer1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Q2 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/Answer2"
                 android:layout_width="match_parent"
@@ -141,38 +143,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Q3 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/Answer3"
                 android:layout_width="match_parent"
-                android:layout_height="142dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="351dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Alemania"
-                    android:textColor="#000000"
-                    app:layout_constraintBottom_toTopOf="@+id/separator3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_question3"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <View
-                    android:id="@+id/separator3"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/cardview_shadow_start_color"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Answer3" />
+                android:layout_height="142dp"
+                android:alpha="100">
 
                 <TextView
                     android:id="@+id/label_question3"
@@ -190,20 +166,48 @@
 
                 <TextView
                     android:id="@+id/text_question3"
-                    android:layout_width="277dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginEnd="125dp"
-                    android:text="¿Cuál de estos países es el más grande?"
+                    android:text="¿Cuál es la capital de España?"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/label_question3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="351dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Madrid"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toTopOf="@+id/separator3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_question3" />
+
+                <View
+                    android:id="@+id/separator3"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/cardview_shadow_start_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Answer3" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Q4 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/Answer4"
                 android:layout_width="match_parent"
@@ -267,6 +271,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/label_question4" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Q5 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/Answer5"
                 android:layout_width="match_parent"
@@ -327,6 +332,70 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_question5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Q6 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Answer6"
+                android:layout_width="match_parent"
+                android:layout_height="142dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="351dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Alemania"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toTopOf="@+id/separator6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_question6"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <View
+                    android:id="@+id/separator6"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/cardview_shadow_start_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Answer6" />
+
+                <TextView
+                    android:id="@+id/label_question6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginEnd="318dp"
+                    android:text="Question 3"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_question6"
+                    android:layout_width="277dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="125dp"
+                    android:text="¿Cuál de estos países es el más grande?"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/label_question6" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
