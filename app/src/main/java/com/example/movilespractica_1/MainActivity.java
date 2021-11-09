@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.concurrent.TimeUnit;
+
 public class MainActivity extends AppCompatActivity {
 
     private ConfigurationViewModel configurationViewModel;
@@ -16,13 +18,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         GameLogic.GAME.setShownActivity(this);
+        configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
     }
 
     public void play(View view) {
-        configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
-        Configuration configuration = configurationViewModel.getConfiguration();
-        GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
-        GameLogic.GAME.setUserName(configuration.getUserName());
+        GameLogic.GAME.setNumMaxQuestions(configurationViewModel.getConfiguration().getNumQuestionsSelected());
+        GameLogic.GAME.setUserName(configurationViewModel.getConfiguration().getUserName());
         GameLogic.GAME.changeActivity(this);
     }
 

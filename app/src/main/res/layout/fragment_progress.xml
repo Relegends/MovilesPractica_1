@@ -101,25 +101,25 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <RadioButton
-                    android:id="@+id/radioButtonIncorrect1"
+                    android:id="@+id/radioButtonP1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Berlín" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonIncorrect2"
+                    android:id="@+id/radioButtonP2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Murcia" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonCorrect"
+                    android:id="@+id/radioButtonP3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Madrid" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonIncorrect3"
+                    android:id="@+id/radioButtonP4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Barcelona" />
@@ -195,7 +195,7 @@
             tools:visibility="invisible">
 
             <ImageView
-                android:id="@+id/polandImage"
+                android:id="@+id/pictureImage"
                 android:layout_width="200dp"
                 android:layout_height="156dp"
                 android:layout_marginStart="32dp"
@@ -222,7 +222,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/polandImage" />
+                app:layout_constraintTop_toBottomOf="@+id/pictureImage" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -268,10 +268,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
             app:layout_constraintVertical_bias="1.0"
-            tools:visibility="invisible">
+            tools:visibility="visible">
 
             <ImageView
-                android:id="@+id/alemaniaFlag"
+                android:id="@+id/flag1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="21dp"
@@ -282,12 +282,12 @@
                 android:src="@mipmap/alemania_foreground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/serbiaFlag"
+                app:layout_constraintTop_toBottomOf="@+id/flag3"
 
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/canariasFlag"
+                android:id="@+id/flag2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
@@ -299,7 +299,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/serbiaFlag"
+                android:id="@+id/flag3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="84dp"
@@ -309,11 +309,11 @@
                 android:focusable="true"
                 android:src="@mipmap/serbia_foreground"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/canariasFlag"
+                app:layout_constraintStart_toEndOf="@+id/flag2"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/andaluciaFlag"
+                android:id="@+id/flag4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="43dp"
@@ -324,7 +324,7 @@
                 android:src="@mipmap/andalucia_image_foreground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/canariasFlag"
+                app:layout_constraintTop_toBottomOf="@+id/flag2"
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -388,7 +388,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator"
             app:layout_constraintVertical_bias="1.0"
-            tools:visibility="visible">
+            tools:visibility="invisible">
 
             <Button
                 android:id="@+id/playMusicButton"

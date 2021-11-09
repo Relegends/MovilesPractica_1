@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class GameLogic implements FragmentCommunication {
 
@@ -19,7 +21,7 @@ public class GameLogic implements FragmentCommunication {
     private int points;
 
     private int indexShownQuestion = 1;
-    private int indexQuestionDB[] = new int[numMaxQuestions];
+    private int indexQuestionDB[];
 
     private int correctAnswers;
 
@@ -28,11 +30,27 @@ public class GameLogic implements FragmentCommunication {
     private Activity shownActivity;
 
     GameLogic() {
-        for (int i = 0; i < indexQuestionDB.length; i++)
-            indexQuestionDB[i] = (int) (Math.random() * 21);
+
+        resetIndexQuestionDB();
+
         points = 0;
     }
 
+    private List<Integer> generateRandomQuestions() {
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < numMaxQuestions; i++)
+            numbers.add(i);
+        Collections.shuffle(numbers);
+        return numbers;
+    }
+
+    public void resetIndexQuestionDB() {
+        indexQuestionDB = new int[numMaxQuestions];
+        List<Integer> randomList = generateRandomQuestions();
+        for (int i = 0; i < indexQuestionDB.length; i++) {
+            indexQuestionDB[i] = randomList.get(i);
+        }
+    }
 
     @Override
     public void setAnswer(boolean isCorrect, int indexQuestion) {
