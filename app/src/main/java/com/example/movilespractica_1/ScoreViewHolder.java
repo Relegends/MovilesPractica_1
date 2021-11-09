@@ -13,7 +13,7 @@ public class ScoreViewHolder extends RecyclerView.ViewHolder {
 
     private ScoreViewHolder (View itemView) {
         super(itemView);
-        scoreItemView = itemView.findViewById(R.id.textViewScore);
+        scoreItemView = itemView.findViewById(R.id.textNumberQuestions);
     }
 
     public void bind(String text) {

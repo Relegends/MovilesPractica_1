@@ -91,7 +91,7 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
 
                 flagsQuestionList.add(new FlagsQuestion("¿Cuál es la bandera de Serbia?", Integer.toString(R.mipmap.serbia_foreground), R.mipmap.canarias_foreground, R.mipmap.alemania_foreground, R.mipmap.andalucia_image_foreground, R.mipmap.serbia_foreground));
 
-                videoQuestionList.add(new VideoQuestion("¿Cuál fué la capital del Imperio ruso (1721-1917)?", "San Petesburgo", R.raw.vidrusia));
+                videoQuestionList.add(new VideoQuestion("¿Cuál fué la capital del Imperio ruso (1721-1917)?", "San Petersburgo", R.raw.vidrusia));
                 videoQuestionList.add(new VideoQuestion("¿Cómo se llama la ciudad capital que aparece en el vídeo?", "Pekín", R.raw.vidchina));
                 videoQuestionList.add(new VideoQuestion("¿En qué país está este famoso castillo?", "Alemania", R.raw.vidalemania));
                 videoQuestionList.add(new VideoQuestion("¿Cómo se llama el país de los mil lagos?", "Finlandia", R.raw.vidfinlandia));

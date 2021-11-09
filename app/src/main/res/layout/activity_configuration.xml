@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigurationActivity"
-    android:background="@drawable/general_background">
+    android:background="@drawable/general_background"
+    tools:context=".ConfigurationActivity">
 
     <TextView
-        android:id="@+id/textViewScore"
+        android:id="@+id/textNumberQuestions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Number of questions"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Número de preguntas"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,11 +25,13 @@
         android:id="@+id/radioGroupNumQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewScore">
+        app:layout_constraintTop_toBottomOf="@+id/textNumberQuestions">
 
         <RadioButton
             android:id="@+id/radioButton"
@@ -53,27 +57,71 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/userNameDisplay"
+        android:id="@+id/textTypeQuestions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Nuevo usuario :O"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Tipo de preguntas"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupNumQ" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupQType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTypeQuestions">
+
+        <RadioButton
+            android:id="@+id/radioButtonQTypeA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preguntas de todo tipo"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonQTypeB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preguntas multimedia"
+            android:textSize="15sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/userNameDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Nuevo usuario! :O"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupQType" />
 
     <EditText
         android:id="@+id/userNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="User name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameDisplay" />
 
