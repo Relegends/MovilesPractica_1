@@ -82,7 +82,7 @@ public class ProgressFragment extends Fragment {
     // FlagsQuestion
     ConstraintLayout flagLayout;
     ImageView flag1, flag2, flag3, flag4;
-    boolean isFlag;
+    int flagId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -135,9 +135,7 @@ public class ProgressFragment extends Fragment {
         // Video
         videoLayout = (ConstraintLayout) progressFragmentView.findViewById(R.id.videoLayout);
         videoView = progressFragmentView.findViewById(R.id.videoView);
-        videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.vidmarianas;
-        Uri uri = Uri.parse((videoPath));
-        videoView.setVideoURI(uri);
+
         videoPlainText = (EditText) progressFragmentView.findViewById(R.id.answer);
 
         mediaController = new MediaController(getContext());
@@ -184,7 +182,7 @@ public class ProgressFragment extends Fragment {
                 flag1.setColorFilter(Color.argb(0, 0, 0, 0));
                 flag2.setColorFilter(Color.argb(0, 0, 0, 0));
                 flag3.setColorFilter(Color.argb(0, 0, 0, 0));
-                isFlag = false;
+                flagId = 4;
             }
         });
 
@@ -195,7 +193,7 @@ public class ProgressFragment extends Fragment {
                 flag1.setColorFilter(Color.argb(50, 0, 0, 0));
                 flag2.setColorFilter(Color.argb(0, 0, 0, 0));
                 flag3.setColorFilter(Color.argb(0, 0, 0, 0));
-                isFlag = false;
+                flagId = 1;
             }
         });
 
@@ -206,7 +204,7 @@ public class ProgressFragment extends Fragment {
                 flag1.setColorFilter(Color.argb(0, 0, 0, 0));
                 flag2.setColorFilter(Color.argb(50, 0, 0, 0));
                 flag3.setColorFilter(Color.argb(0, 0, 0, 0));
-                isFlag = false;
+                flagId = 2;
             }
         });
 
@@ -217,7 +215,7 @@ public class ProgressFragment extends Fragment {
                 flag1.setColorFilter(Color.argb(0, 0, 0, 0));
                 flag2.setColorFilter(Color.argb(0, 0, 0, 0));
                 flag3.setColorFilter(Color.argb(50, 0, 0, 0));
-                isFlag = true;
+                flagId = 3;
             }
         });
     }
@@ -232,6 +230,8 @@ public class ProgressFragment extends Fragment {
             case RADIOBUTTON:
                 RadioButtonQuestion rq = (RadioButtonQuestion) q;
                 disableVisibilityLayouts();
+
+
                 radioButton1.setText(rq.getOption1());
                 radioButton2.setText(rq.getOption2());
                 radioButton3.setText(rq.getOption3());
@@ -267,6 +267,8 @@ public class ProgressFragment extends Fragment {
                 PictureQuestion pq = (PictureQuestion) q;
                 disableVisibilityLayouts();
 
+                countryPlainText.setText("");
+
                 pictureImage.setImageResource(pq.getPictureId());
 
                 imageLayout.setVisibility(View.VISIBLE);
@@ -285,8 +287,13 @@ public class ProgressFragment extends Fragment {
             case VIDEO:
                 VideoQuestion vq = (VideoQuestion) q;
                 disableVisibilityLayouts();
+                videoView.setVisibility(View.VISIBLE);
+
+                videoPlainText.setText("");
 
                 videoPath = "android.resource://" + getActivity().getPackageName() + "/" + vq.getVideoId();
+                Uri uri = Uri.parse((videoPath));
+                videoView.setVideoURI(uri);
 
                 videoLayout.setVisibility(View.VISIBLE);
                 break;
@@ -299,7 +306,6 @@ public class ProgressFragment extends Fragment {
                 audioLayout.setVisibility(View.VISIBLE);
                 break;
         }
-        ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();
     }
 
     private void disableVisibilityLayouts() {
@@ -310,6 +316,13 @@ public class ProgressFragment extends Fragment {
         flagLayout.setVisibility(View.GONE);
         videoLayout.setVisibility(View.GONE);
         audioLayout.setVisibility(View.GONE);
+
+        radioGroup.clearCheck();
+
+        videoView.setVisibility(View.GONE);
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
     }
 
     private void checkAnswer() {
@@ -317,7 +330,19 @@ public class ProgressFragment extends Fragment {
         switch (q.getQuestionType()) {
             case RADIOBUTTON:
                 RadioButtonQuestion rb = (RadioButtonQuestion) q;
-                //GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                if (radioButton1.isChecked()) {
+                    if (radioButton1.getText().equals(rb.getSolution()))
+                        GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                } else if (radioButton2.isChecked()) {
+                    if (radioButton2.getText().equals(rb.getSolution()))
+                        GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                } else if (radioButton3.isChecked()) {
+                    if (radioButton4.getText().equals(rb.getSolution()))
+                        GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                } else if (radioButton4.isChecked()) {
+                    if (radioButton4.getText().equals(rb.getSolution()))
+                        GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                }
                 break;
             case CHECKBOX:
                 if (checkBoxCorrect1.isChecked() && checkBoxCorrect2.isChecked() && !checkBoxInCorrect2.isChecked() && !checkBoxIncorrect1.isChecked())
@@ -336,8 +361,24 @@ public class ProgressFragment extends Fragment {
             case FLAGS:
                 FlagsQuestion fq = (FlagsQuestion) q;
 
-                if (isFlag)
-                    GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                switch (flagId) {
+                    case 1:
+                        if (flag1.getResources().equals(fq.getSolution()))
+                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        break;
+                    case 2:
+                        if (flag2.getResources().equals(fq.getSolution()))
+                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        break;
+                    case 3:
+                        if (flag3.getResources().equals(fq.getSolution()))
+                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        break;
+                    case 4:
+                        if (flag4.getResources().equals(fq.getSolution()))
+                            GameLogic.GAME.setAnswer(true, GameLogic.GAME.getIndexShownQuestion());
+                        break;
+                }
 
                 break;
             case VIDEO:
@@ -350,7 +391,7 @@ public class ProgressFragment extends Fragment {
 
                 break;
         }
-
+        ((ResultQuestionsFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.resultQuestionsFragment)).answerQuestion();
     }
 
     private void countDownEvent() {

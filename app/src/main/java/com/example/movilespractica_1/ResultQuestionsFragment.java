@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class ResultQuestionsFragment extends Fragment {
     TextView questions[] = new TextView[GameLogic.GAME.getNumMaxQuestions()];
 
     TextView correctAnswersText;
+
+    LinearLayout row1, row2, row3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,13 +39,21 @@ public class ResultQuestionsFragment extends Fragment {
         // Inflate the layout for this fragment
         View resultQuestionsFragmentView = inflater.inflate(R.layout.fragment_result_questions, container, false);
 
+        row1 = resultQuestionsFragmentView.findViewById(R.id.row1);
+        row2 = resultQuestionsFragmentView.findViewById(R.id.row2);
+        row3 = resultQuestionsFragmentView.findViewById(R.id.row3);
+
+        row2.setVisibility(View.GONE);
+        row3.setVisibility(View.GONE);
+
         questions[0] = resultQuestionsFragmentView.findViewById(R.id.questionMenu1);
         questions[1] = resultQuestionsFragmentView.findViewById(R.id.questionMenu2);
         questions[2] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);
         questions[3] = resultQuestionsFragmentView.findViewById(R.id.questionMenu4);
         questions[4] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
 
-        if (GameLogic.GAME.getNumMaxQuestions() > 5) {
+        if (GameLogic.GAME.getNumMaxQuestions() == 10) {
+            row2.setVisibility(View.VISIBLE);
             questions[5] = resultQuestionsFragmentView.findViewById(R.id.questionMenu1);
             questions[6] = resultQuestionsFragmentView.findViewById(R.id.questionMenu2);
             questions[7] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);
@@ -50,7 +61,8 @@ public class ResultQuestionsFragment extends Fragment {
             questions[9] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
         }
 
-        if (GameLogic.GAME.getNumMaxQuestions() > 10) {
+        if (GameLogic.GAME.getNumMaxQuestions() == 15) {
+            row2.setVisibility(View.VISIBLE);
             questions[10] = resultQuestionsFragmentView.findViewById(R.id.questionMenu1);
             questions[11] = resultQuestionsFragmentView.findViewById(R.id.questionMenu2);
             questions[12] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);

@@ -42,7 +42,11 @@ public class ConfigurationActivity extends AppCompatActivity {
             configurationViewModel.deleteConfiguration();
             configurationViewModel.insertConfiguration(configuration);
 
+            GameLogic.GAME.setUserName(userName.getText().toString());
+            GameLogic.GAME.setNumMaxQuestions(Integer.parseInt((String) radioButton.getText()));
+
             Toast.makeText(this, "Ajustes guardados", Toast.LENGTH_SHORT).show();
+            GameLogic.GAME.changeActivity(this);
 
         } else {
             Toast.makeText(this, "Rellene toda la configuración", Toast.LENGTH_SHORT).show();
