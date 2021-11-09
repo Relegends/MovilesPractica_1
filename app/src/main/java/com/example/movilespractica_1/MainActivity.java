@@ -23,11 +23,12 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
 
     public void play(View view) throws InterruptedException {
 
-        TimeUnit.SECONDS.sleep(2);
+
         configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
         Configuration configuration = configurationViewModel.getConfiguration();
 
         if (!configuration.getUserName().equals("Anónimo")) {
+            TimeUnit.SECONDS.sleep(1);
             GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
             GameLogic.GAME.setUserName(configuration.getUserName());
             GameLogic.GAME.setGameMode(configuration.getGameMode());
