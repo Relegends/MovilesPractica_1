@@ -34,7 +34,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
 
-        if(radioButton != null) {
+        if(radioButton != null && !userName.getText().toString().equals("")) {
             Configuration configuration = new Configuration();
             configuration.setNumQuestionsSelected(Integer.parseInt((String) radioButton.getText()));
             configuration.setUserName(userName.getText().toString());
@@ -44,6 +44,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 
             GameLogic.GAME.setUserName(userName.getText().toString());
             GameLogic.GAME.setNumMaxQuestions(Integer.parseInt((String) radioButton.getText()));
+
+            GameLogic.GAME.resetGameLogic();
 
             Toast.makeText(this, "Ajustes guardados", Toast.LENGTH_SHORT).show();
             GameLogic.GAME.changeActivity(this);

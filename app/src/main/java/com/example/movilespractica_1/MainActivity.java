@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
         if (!configuration.getUserName().equals("Anónimo")) {
             GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
             GameLogic.GAME.setUserName(configuration.getUserName());
+            GameLogic.GAME.resetGameLogic();
             GameLogic.GAME.changeActivity(this);
         } else {
             openUserWarning();
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements UserWarning.userW
         if (answer) {
             GameLogic.GAME.setNumMaxQuestions(configuration.getNumQuestionsSelected());
             GameLogic.GAME.setUserName(configuration.getUserName());
+            GameLogic.GAME.resetGameLogic();
             GameLogic.GAME.changeActivity(this);
         } else {
             Intent intent = new Intent(this, ConfigurationActivity.class);

@@ -81,7 +81,7 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Etiopía?", "Adís Abeba",
                         "Abuya", "Tokio", "Zagreb", "Adís Abeba"));
 
-                checkBoxQuestionList.add(new CheckBoxQuestion("¿Cuáles de estos paises están en la UE?", "", "Bélgica", "Portugal", "Turquía", "Rusia"));
+                checkBoxQuestionList.add(new CheckBoxQuestion("¿Cuáles de estos países pertenecen a la UE?", "", "Bélgica", "Portugal", "Turquía", "Rusia"));
 
                 spinnerQuestionList.add(new SpinnerQuestion("Seleccione el país más pequeño del mundo:", "Ciudad del Vaticano", "Montenegro", "Andorra", "Corea del Sur", "Ciudad del Vaticano"));
                 spinnerQuestionList.add(new SpinnerQuestion("Selecciona el país que se encuentra en América", "Honduras", "Honduras", "Malasia", "Papúa Nueva Guinea", "Algeria"));

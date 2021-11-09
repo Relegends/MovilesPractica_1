@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class ShowAnswersFragment extends Fragment {
 
-    ConstraintLayout questions[] = new ConstraintLayout[5];
+    ConstraintLayout questions[] = new ConstraintLayout[20];
 
     Button seeScoresButton;
 
@@ -40,6 +40,23 @@ public class ShowAnswersFragment extends Fragment {
         questions[2] = showFragmentAnswersView.findViewById(R.id.Answer3);
         questions[3] = showFragmentAnswersView.findViewById(R.id.Answer4);
         questions[4] = showFragmentAnswersView.findViewById(R.id.Answer5);
+//        questions[5] = showFragmentAnswersView.findViewById(R.id.Answer6);
+//        questions[6] = showFragmentAnswersView.findViewById(R.id.Answer7);
+//        questions[7] = showFragmentAnswersView.findViewById(R.id.Answer8);
+//        questions[8] = showFragmentAnswersView.findViewById(R.id.Answer9);
+//        questions[9] = showFragmentAnswersView.findViewById(R.id.Answer10);
+//        questions[10] = showFragmentAnswersView.findViewById(R.id.Answer11);
+//        questions[11] = showFragmentAnswersView.findViewById(R.id.Answer12);
+//        questions[12] = showFragmentAnswersView.findViewById(R.id.Answer13);
+//        questions[13] = showFragmentAnswersView.findViewById(R.id.Answer14);
+//        questions[14] = showFragmentAnswersView.findViewById(R.id.Answer15);
+//        questions[15] = showFragmentAnswersView.findViewById(R.id.Answer16);
+//        questions[16] = showFragmentAnswersView.findViewById(R.id.Answer17);
+//        questions[17] = showFragmentAnswersView.findViewById(R.id.Answer18);
+//        questions[18] = showFragmentAnswersView.findViewById(R.id.Answer19);
+//        questions[19] = showFragmentAnswersView.findViewById(R.id.Answer20);
+
+        setVisibilityAnswers();
 
         seeScoresButton = (Button) showFragmentAnswersView.findViewById(R.id.seeScoresButton);
         seeScores();
@@ -49,13 +66,29 @@ public class ShowAnswersFragment extends Fragment {
         return showFragmentAnswersView;
     }
 
+    private void setVisibilityAnswers() {
+        for (int i = 0; i < questions.length; i++) {
+            questions[i].setVisibility(View.GONE);
+        }
+
+        int[] aux = GameLogic.GAME.getIndexQuestionDB();
+        for (int i = 0; i < questions.length; i++) {
+            for (int j = 0; j < aux.length; j++) {
+                if (i == aux[j]) {
+                    questions[i].setVisibility(View.VISIBLE);
+                }
+            }
+        }
+    }
+
     public void answerQuestions(boolean answers[]) {
+        int[] aux = GameLogic.GAME.getIndexQuestionDB();
 
         for (int i = 0; i < answers.length; i++) {
             if (answers[i]) {
-                questions[i].setBackgroundColor(0x8000FF00);
+                questions[aux[i]].setBackgroundColor(0x8000FF00);
             } else {
-                questions[i].setBackgroundColor(0x80FF0000);
+                questions[aux[i]].setBackgroundColor(0x80FF0000);
             }
         }
     }

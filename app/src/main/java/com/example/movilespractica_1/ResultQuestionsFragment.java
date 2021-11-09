@@ -52,22 +52,22 @@ public class ResultQuestionsFragment extends Fragment {
         questions[3] = resultQuestionsFragmentView.findViewById(R.id.questionMenu4);
         questions[4] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
 
-        if (GameLogic.GAME.getNumMaxQuestions() == 10) {
+        if (GameLogic.GAME.getNumMaxQuestions() >= 10) {
             row2.setVisibility(View.VISIBLE);
-            questions[5] = resultQuestionsFragmentView.findViewById(R.id.questionMenu1);
-            questions[6] = resultQuestionsFragmentView.findViewById(R.id.questionMenu2);
-            questions[7] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);
-            questions[8] = resultQuestionsFragmentView.findViewById(R.id.questionMenu4);
-            questions[9] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
+            questions[5] = resultQuestionsFragmentView.findViewById(R.id.questionMenu6);
+            questions[6] = resultQuestionsFragmentView.findViewById(R.id.questionMenu7);
+            questions[7] = resultQuestionsFragmentView.findViewById(R.id.questionMenu8);
+            questions[8] = resultQuestionsFragmentView.findViewById(R.id.questionMenu9);
+            questions[9] = resultQuestionsFragmentView.findViewById(R.id.questionMenu10);
         }
 
         if (GameLogic.GAME.getNumMaxQuestions() == 15) {
-            row2.setVisibility(View.VISIBLE);
-            questions[10] = resultQuestionsFragmentView.findViewById(R.id.questionMenu1);
-            questions[11] = resultQuestionsFragmentView.findViewById(R.id.questionMenu2);
-            questions[12] = resultQuestionsFragmentView.findViewById(R.id.questionMenu3);
-            questions[13] = resultQuestionsFragmentView.findViewById(R.id.questionMenu4);
-            questions[14] = resultQuestionsFragmentView.findViewById(R.id.questionMenu5);
+            row3.setVisibility(View.VISIBLE);
+            questions[10] = resultQuestionsFragmentView.findViewById(R.id.questionMenu11);
+            questions[11] = resultQuestionsFragmentView.findViewById(R.id.questionMenu12);
+            questions[12] = resultQuestionsFragmentView.findViewById(R.id.questionMenu13);
+            questions[13] = resultQuestionsFragmentView.findViewById(R.id.questionMenu14);
+            questions[14] = resultQuestionsFragmentView.findViewById(R.id.questionMenu15);
         }
 
 

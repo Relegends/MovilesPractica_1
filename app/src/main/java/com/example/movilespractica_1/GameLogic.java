@@ -105,10 +105,7 @@ public class GameLogic implements FragmentCommunication {
         switch (shownActivity.getLocalClassName()) {
             case "MainActivity":
                 intent = new Intent(shownActivity, GameActivity.class);
-                GameLogic.GAME.resetAnswers();
-                GameLogic.GAME.resetIndexQuestionDB();
-                GameLogic.GAME.resetPoints();
-                GameLogic.GAME.resetIndexQuestion();
+                GameLogic.GAME.resetGameLogic();
                 shownActivity.startActivity(intent);
                 resetAnswers();
                 break;
@@ -125,10 +122,7 @@ public class GameLogic implements FragmentCommunication {
             case "ClassificationActivity":
             case "ConfigurationActivity":
                 intent = new Intent(shownActivity, GameActivity.class);
-                GameLogic.GAME.resetAnswers();
-                GameLogic.GAME.resetIndexQuestionDB();
-                GameLogic.GAME.resetPoints();
-                GameLogic.GAME.resetIndexQuestion();
+                GameLogic.GAME.resetGameLogic();
                 shownActivity.startActivity(intent);
                 shownActivity.finish();
                 break;
@@ -172,5 +166,16 @@ public class GameLogic implements FragmentCommunication {
 
     public int getNumMaxQuestions() {
         return numMaxQuestions;
+    }
+
+    public void resetGameLogic() {
+        resetIndexQuestion();
+        resetIndexQuestionDB();
+        resetPoints();
+        resetAnswers();
+    }
+
+    public int[] getIndexQuestionDB() {
+        return indexQuestionDB;
     }
 }
