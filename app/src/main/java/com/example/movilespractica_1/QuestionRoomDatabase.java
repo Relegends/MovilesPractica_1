@@ -78,7 +78,7 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 radioButtonQuestionList.add(new RadioButtonQuestion("¿En qué continente está Ruanda?", "África",
                         "Asia", "África", "Europa", "Oceanía"));
 
-                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Sudáfrica?", "Adís Abeba",
+                radioButtonQuestionList.add(new RadioButtonQuestion("¿Cuál es la capital de Etiopía?", "Adís Abeba",
                         "Abuya", "Tokio", "Zagreb", "Adís Abeba"));
 
                 checkBoxQuestionList.add(new CheckBoxQuestion("¿Cuáles de estos paises están en la UE?", "", "Bélgica", "Portugal", "Turquía", "Rusia"));
@@ -92,10 +92,10 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
                 flagsQuestionList.add(new FlagsQuestion("¿Cuál es la bandera de Serbia?", Integer.toString(R.mipmap.serbia_foreground), R.mipmap.canarias_foreground, R.mipmap.alemania_foreground, R.mipmap.andalucia_image_foreground, R.mipmap.serbia_foreground));
 
                 videoQuestionList.add(new VideoQuestion("¿Cuál fué la capital del Imperio ruso (1721-1917)?", "San Petesburgo", R.raw.vidrusia));
-                videoQuestionList.add(new VideoQuestion("Cómo se llama la ciudad capital que aparece en el vídeo?", "Pekín", R.raw.vidchina));
+                videoQuestionList.add(new VideoQuestion("¿Cómo se llama la ciudad capital que aparece en el vídeo?", "Pekín", R.raw.vidchina));
                 videoQuestionList.add(new VideoQuestion("¿En qué país está este famoso castillo?", "Alemania", R.raw.vidalemania));
                 videoQuestionList.add(new VideoQuestion("¿Cómo se llama el país de los mil lagos?", "Finlandia", R.raw.vidfinlandia));
-                videoQuestionList.add(new VideoQuestion("¿Cuál es el lugar más profundo de los océanos de la tierra?", "Fosa de las marianas", R.raw.vidmarianas));
+                videoQuestionList.add(new VideoQuestion("¿Cuál es el lugar más profundo de los océanos de la tierra?", "Fosa de las Marianas", R.raw.vidmarianas));
                 videoQuestionList.add(new VideoQuestion("¿Qué país quedó fusionado con Alemania tras el Anschluss?", "Austria", R.raw.vidww2));
 
                 anthemQuestionList.add(new AnthemQuestion("¿De qué país es el siguiente himno?", "Japón", R.raw.himnojapon));
