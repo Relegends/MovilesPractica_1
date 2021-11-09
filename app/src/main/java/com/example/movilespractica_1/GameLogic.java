@@ -19,6 +19,8 @@ public class GameLogic implements FragmentCommunication {
 
     private int numMaxQuestions;
 
+    private String gameMode = "Preguntas de todo tipo";
+
     private String userName;
 
     private int points;
@@ -39,7 +41,15 @@ public class GameLogic implements FragmentCommunication {
 
     private List<Integer> generateRandomQuestions() {
         List<Integer> numbers = new ArrayList<>();
-        for (int i = 0; i < 20; i++)
+
+        int numberOfQuestions;
+
+        if (gameMode.equals("Preguntas de todo tipo"))
+            numberOfQuestions = 20;
+        else
+            numberOfQuestions = 10;
+
+        for (int i = 0; i < numberOfQuestions; i++)
             numbers.add(i);
         Collections.shuffle(numbers);
         return numbers;
@@ -125,6 +135,7 @@ public class GameLogic implements FragmentCommunication {
                 break;
             case "ResultsActivity":
                 intent = new Intent(shownActivity, ClassificationActivity.class);
+                intent.putExtra("caller", "ResultsActivity");
                 shownActivity.startActivity(intent);
                 shownActivity.finish();
                 break;
@@ -243,5 +254,13 @@ public class GameLogic implements FragmentCommunication {
 
     public void resetChronoText() {
         chronoText = "";
+    }
+
+    public String getGameMode() {
+        return gameMode;
+    }
+
+    public void setGameMode(String gameMode) {
+        this.gameMode = gameMode;
     }
 }

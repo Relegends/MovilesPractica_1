@@ -71,5 +71,14 @@ public class QuestionViewModel extends AndroidViewModel {
         return list;
     }
 
+    public ArrayList<Question> getMultimediaQuestions() {
+        ArrayList<Question> list = new ArrayList<>();
+        list.addAll(mAllVideoQuestions);
+        list.addAll(mAllAnthemQuestions);
+        list.addAll(mAllPictureQuestions);
+        list.addAll(mAllFlagsQuestions);
+        return list;
+    }
+
     public void insertQuestion(Question question) { mRepository.insertQuestion(question); }
 }

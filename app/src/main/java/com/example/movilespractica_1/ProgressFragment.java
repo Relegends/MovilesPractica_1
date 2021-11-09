@@ -36,6 +36,7 @@ public class ProgressFragment extends Fragment {
     private QuestionViewModel mQuestionViewModel;
 
     private ArrayList<Question> mAllQuestions = new ArrayList<>();
+    private ArrayList<Question> mAllMultimediaQuestions = new ArrayList<>();
 
     ProgressBar progressBar;
     CountDownTimer countDownTimer;
@@ -93,6 +94,7 @@ public class ProgressFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mQuestionViewModel = new ViewModelProvider(getActivity()).get(QuestionViewModel.class);
         mAllQuestions = mQuestionViewModel.getAllQuestions();
+        mAllMultimediaQuestions = mQuestionViewModel.getMultimediaQuestions();
     }
 
     @Override
@@ -240,7 +242,15 @@ public class ProgressFragment extends Fragment {
         }
 
         questionNumber.setText("Question " + indexQuestion);
-        Question q = mAllQuestions.get(GameLogic.GAME.getNextQuestionDB());
+
+        Question q;
+
+        if (GameLogic.GAME.getGameMode().equals("Preguntas de todo tipo"))
+            q = mAllQuestions.get(GameLogic.GAME.getNextQuestionDB());
+        else
+            q = mAllMultimediaQuestions.get(GameLogic.GAME.getNextQuestionDB());
+
+
         GameLogic.GAME.addQuestionInGame(q);
         questionText.setText(q.getQuestionText());
 
